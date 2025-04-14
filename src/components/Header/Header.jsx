@@ -1,16 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import s from './Header.module.scss';
 import geoIcon from '../../assets/icons/change-geo-icon.svg';
 import themeIcon from '../../assets/icons/change-theme-icon.svg';
 import SearchBar from '../SearchBar/SearchBar.jsx';
 
 const Header = () => {
+	const [scrolled, setScrolled] = useState(false);
+
+	useEffect(() => {
+		const onScroll = () => {
+			setScrolled(window.scrollY > 0);
+		};
+
+		window.addEventListener('scroll', onScroll);
+		return () => window.removeEventListener('scroll', onScroll);
+	}, []);
+
 	const handleSearch = (query) => {
 		console.log('Поиск:', query);
 	};
 
 	return (
-		<header className={s.header}>
+		<header className={`${s.header} ${scrolled ? s.header_scrolled : ''}`}>
 			<SearchBar
 				placeholder='Поиск по номеру маршрута...'
 				onSearch={handleSearch}

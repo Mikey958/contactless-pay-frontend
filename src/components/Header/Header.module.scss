@@ -1,4 +1,8 @@
 .header {
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: 9999;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -9,6 +13,11 @@
 	height: 61px;
 	padding: 0 15px;
 	background-color: #ffffff;
+	transition: box-shadow 0.3s ease;
+
+	&_scrolled {
+		box-shadow: 0 3px 8px 1px rgb(0 0 0 / 25%);
+	}
 
 	&__container {
 		display: flex;
