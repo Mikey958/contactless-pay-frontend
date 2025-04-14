@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SetLocation = () => {
-	return <div>Локация</div>;
+	return <div>Локаsadadция</div>;
 };
 
 export default SetLocation;
