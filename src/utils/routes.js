@@ -1,18 +1,27 @@
 import {
 	CHANGE_GEOLOCATION_ROUTE,
+	FAVORITE_ROUTE,
 	HISTORY_ROUTE,
 	MAIN_ROUTE,
+	MAP_ROUTE,
 } from './consts.js';
 import Home from '../pages/Home.jsx';
 import SetLocation from '../pages/SetLocation.jsx';
 import History from '../pages/History.jsx';
 import EmptyLayout from '../layout/EmptyLayout.jsx';
 import FullLayout from '../layout/FullLayout.jsx';
+import Favorite from '../pages/Favorite.jsx';
+import Map from '../pages/Map.jsx';
 
 export const authRoutes = [
 	{
 		path: HISTORY_ROUTE,
 		Component: History,
+		Layout: FullLayout,
+	},
+	{
+		path: FAVORITE_ROUTE,
+		Component: Favorite,
 		Layout: FullLayout,
 	},
 ];
@@ -21,6 +30,11 @@ export const publicRoutes = [
 	{
 		path: MAIN_ROUTE,
 		Component: Home,
+		Layout: FullLayout,
+	},
+	{
+		path: MAP_ROUTE,
+		Component: Map,
 		Layout: FullLayout,
 	},
 	{
