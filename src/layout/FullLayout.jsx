@@ -7,7 +7,7 @@ const FullLayout = ({ children }) => {
 	return (
 		<div className={s.layout}>
 			<Header />
-			<main className={s.layout__content}>{children}</main>
+			{children}
 			<Footer />
 		</div>
 	);

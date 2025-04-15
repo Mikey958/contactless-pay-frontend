@@ -5,13 +5,13 @@ import {
 	MAIN_ROUTE,
 	MAP_ROUTE,
 } from './consts.js';
-import Home from '../pages/Home.jsx';
-import SetLocation from '../pages/SetLocation.jsx';
-import History from '../pages/History.jsx';
+import Home from '../pages/Home/Home.jsx';
+import SetLocation from '../pages/SetLocation/SetLocation.jsx';
+import History from '../pages/History/History.jsx';
 import EmptyLayout from '../layout/EmptyLayout.jsx';
 import FullLayout from '../layout/FullLayout.jsx';
-import Favorite from '../pages/Favorite.jsx';
-import Map from '../pages/Map.jsx';
+import Favorite from '../pages/Favorite/Favorite.jsx';
+import Map from '../pages/Map/Map.jsx';
 
 export const authRoutes = [
 	{
