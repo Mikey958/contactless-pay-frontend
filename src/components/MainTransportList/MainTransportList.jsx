@@ -2,8 +2,9 @@ import React, { useContext } from 'react';
 import { Context } from '../../main.jsx';
 import s from './MainTransportList.module.scss';
 import TransportItem from '../TransportItem/TransportItem.jsx';
+import { observer } from 'mobx-react-lite';
 
-const MainTransportList = () => {
+const MainTransportList = observer(() => {
 	const { transport } = useContext(Context);
 
 	return (
@@ -19,6 +20,6 @@ const MainTransportList = () => {
 			)}
 		</div>
 	);
-};
+});
 
 export default MainTransportList;

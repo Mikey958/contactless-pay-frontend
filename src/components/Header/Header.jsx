@@ -3,8 +3,11 @@ import s from './Header.module.scss';
 import geoIcon from '../../assets/icons/change-geo-icon.svg';
 import themeIcon from '../../assets/icons/change-theme-icon.svg';
 import SearchBar from '../SearchBar/SearchBar.jsx';
+import { useNavigate } from 'react-router-dom';
+import { CHANGE_GEOLOCATION_ROUTE } from '../../utils/consts.js';
 
 const Header = () => {
+	const navigate = useNavigate();
 	const [scrolled, setScrolled] = useState(false);
 
 	useEffect(() => {
@@ -34,7 +37,10 @@ const Header = () => {
 						alt='Геопозиция'
 					/>
 				</button>
-				<button className={s.header__button}>
+				<button
+					onClick={() => navigate(CHANGE_GEOLOCATION_ROUTE)}
+					className={s.header__button}
+				>
 					<img
 						className={s.header__buttonIcon}
 						src={themeIcon ? themeIcon : undefined}

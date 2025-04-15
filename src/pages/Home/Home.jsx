@@ -70,7 +70,7 @@ const Home = () => {
 
 			<section className={s.home__near}>
 				<h2 className={s['home__near-title']}>Ближайший транспорт</h2>
-				<MainTransportList></MainTransportList>
+				<MainTransportList />
 			</section>
 		</main>
 	);

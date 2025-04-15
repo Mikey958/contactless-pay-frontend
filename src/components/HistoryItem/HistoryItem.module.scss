@@ -1,0 +1,144 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-sizing: border-box;
+  width: 290px;
+  height: 71px;
+  padding: 10px 15px 10px 13px;
+  background-color: #F8F9FA;
+  border: 1px solid #E9ECEF;
+  border-radius: 10px;
+
+  &__history {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    height: 100%;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  &__main-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 3px;
+  }
+
+  &__naming {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__route {
+    color: black;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    line-height: 1.14;
+    letter-spacing: 0;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 16px;
+    padding: 0 6px;
+    background-color: #E9ECEF;
+    border-radius: 5px;
+  }
+
+  &__number {
+    color: #808080;
+    font-weight: 400;
+    font-size: 11px;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  &__direction {
+    color: #00000080;
+    font-weight: 400;
+    font-size: 12px;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    line-height: 1.17;
+    letter-spacing: 0;
+  }
+
+  &__date-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__moment {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2px;
+  }
+
+  &__moment-icon {
+    width: 13px;
+    height: 13px;
+  }
+
+  &__moment-text {
+    color: #7C7D7D;
+    font-weight: 400;
+    font-size: 9px;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  &__status {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 20px;
+    padding: 0 6px;
+    color: white;
+    font-weight: 500;
+    font-size: 12px;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    line-height: 1;
+    letter-spacing: 0;
+    background-color: #3498DB;
+    border-radius: 20px;
+  }
+}

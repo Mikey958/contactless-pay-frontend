@@ -4,6 +4,7 @@ export default class HistoryStore {
 	constructor() {
 		this._history = [
 			{
+				type: 'bus',
 				id: 1,
 				route: 82,
 				number: 'А123БВ',
@@ -13,6 +14,7 @@ export default class HistoryStore {
 				price: 30.0,
 			},
 			{
+				type: 'tram',
 				id: 2,
 				route: 82,
 				number: 'А123БВ',
@@ -22,6 +24,7 @@ export default class HistoryStore {
 				price: 30.0,
 			},
 			{
+				type: 'trolleybus',
 				id: 3,
 				route: 82,
 				number: 'А123БВ',
