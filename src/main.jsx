@@ -5,6 +5,7 @@ import App from './App.jsx';
 import UserStore from './store/UserStore.js';
 import TransportStore from './store/TransportStore.js';
 import HistoryStore from './store/HistoryStore.js';
+import FavoriteStore from './store/FavoriteStore.js';
 
 export const Context = createContext(null);
 
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')).render(
 				user: new UserStore(),
 				transport: new TransportStore(),
 				history: new HistoryStore(),
+				favorite: new FavoriteStore(),
 			}}
 		>
 			<App />
