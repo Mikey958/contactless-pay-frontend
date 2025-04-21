@@ -17,7 +17,7 @@ export default class TransportStore {
 			{
 				id: 2,
 				route: 82,
-				number: 'А123БВ',
+				number: 'А1223БВ',
 				direction: 'ЖБИ - СТЦ Мега',
 				current: 'ЖБИ',
 				next: 'СТЦ Мега',
@@ -28,7 +28,7 @@ export default class TransportStore {
 			{
 				id: 3,
 				route: 82,
-				number: 'А123БВ',
+				number: 'А1233БВ',
 				direction: 'ЖБИ - СТЦ Мега',
 				current: 'ЖБИ',
 				next: 'СТЦ Мега',

@@ -2,9 +2,15 @@ import React from 'react';
 import s from './TransportItem.module.scss';
 import getImageSrc from '../../utils/getImageSrc.js';
 import likeBtn from '../../assets/icons/like-button.svg';
+import { useNavigate } from 'react-router-dom';
+import { TRANSPORT_ROUTE } from '../../utils/consts.js';
 const TransportItem = ({ transport }) => {
+	const navigate = useNavigate();
 	return (
-		<div className={s.card}>
+		<div
+			className={s.card}
+			onClick={() => navigate(TRANSPORT_ROUTE + '/' + transport.number)}
+		>
 			<div className={s.card__transport}>
 				<img
 					className={s.card__icon}
@@ -31,7 +37,6 @@ const TransportItem = ({ transport }) => {
 					</p>
 				</div>
 			</div>
-
 			<div className={s['card__status-wrapper']}>
 				<button className={s.card__button}>
 					<img className={s['card__button-icon']} src={likeBtn} alt='сердце' />
