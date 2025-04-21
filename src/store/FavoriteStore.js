@@ -6,22 +6,28 @@ export default class FavoritesStore {
 			{
 				type: 'bus',
 				id: 1,
-				number: 12,
+				route: 12,
 				direction: 'ЖБИ - СТЦ Мега',
 				price: 30,
 				alertCnt: 2,
 				transports: [],
 				nearTransports: [],
+				notifications: Array(10)
+					.fill(null)
+					.map(() => this.createEmptyNotification()),
 			},
 			{
 				type: 'tram',
 				id: 2,
-				number: 12,
+				route: 13,
 				direction: 'ЖБИ - СТЦ Мега',
 				price: 30,
 				alertCnt: 0,
 				transports: [],
 				nearTransports: [],
+				notifications: Array(10)
+					.fill(null)
+					.map(() => this.createEmptyNotification()),
 			},
 		];
 		makeAutoObservable(this);
@@ -67,11 +73,6 @@ export default class FavoritesStore {
 
 	createEmptyNotification() {
 		return {
-			stopName: '',
-			activeDays: [],
-			startTime: '08:00',
-			endTime: '18:00',
-			interval: 10,
 			enabled: false,
 		};
 	}
