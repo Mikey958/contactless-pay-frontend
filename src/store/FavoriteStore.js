@@ -19,7 +19,7 @@ export default class FavoritesStore {
 						current: 'ЖБИ',
 						next: 'СТЦ Мега',
 						type: 'bus',
-						status: '5 мин',
+						status: 6,
 						price: 30.0,
 					},
 					{
@@ -30,7 +30,7 @@ export default class FavoritesStore {
 						current: 'ЖБИ',
 						next: 'СТЦ Мега',
 						type: 'tram',
-						status: 'прибывает',
+						status: 5,
 						price: 30.0,
 					},
 					{
@@ -41,7 +41,7 @@ export default class FavoritesStore {
 						current: 'ЖБИ',
 						next: 'СТЦ Мега',
 						type: 'trolleybus',
-						status: '4 мин',
+						status: 4,
 						price: 29.0,
 					},
 				],
@@ -52,6 +52,7 @@ export default class FavoritesStore {
 						current: 'ЖБИ',
 						next: 'СТЦ Мега',
 						status: 5,
+						stop: 'УрФУ',
 					},
 					{
 						id: 2,
@@ -60,6 +61,7 @@ export default class FavoritesStore {
 						current: 'ЖБИ',
 						next: 'СТЦ Мега',
 						status: 5,
+						stop: 'УрФУ',
 					},
 					{
 						id: 3,
@@ -68,6 +70,7 @@ export default class FavoritesStore {
 						current: 'ЖБИ',
 						next: 'СТЦ Мега',
 						status: 5,
+						stop: 'УрФУ',
 					},
 				],
 				notifications: Array(10)
