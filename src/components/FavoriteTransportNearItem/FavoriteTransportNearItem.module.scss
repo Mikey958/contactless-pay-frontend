@@ -1,0 +1,101 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content:space-between;
+  padding: 10px 5px 15px 15px;
+  width: 100%;
+  min-height: 93px;
+  border-radius: 10px;
+  border: 1px solid #e9ecef;
+  background-color: #F8F9FA;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 15px;
+
+  }
+  &__wrapper {
+    width: 68px;
+    height: 24px;
+    border-radius: 5px;
+    background-color: #E9ECEF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto','Arial', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 0;
+    color: black;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  &__stop {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 3px;
+  }
+
+  &__stopname {
+    padding: 0;
+    font-family: 'Roboto','Arial', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: #202020;
+  }
+
+  &__status {
+    margin-top: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 2px;
+  }
+
+  &__timer {
+    min-height: 18px;
+    gap: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 5px 0 2px;
+    border-radius: 20px;
+    background-color: #3498DB;
+  }
+
+  &__time {
+    font-family: 'Roboto','Arial', sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 1;
+    letter-spacing: 0;
+    color: white;
+  }
+
+  &__fav {
+    font-family: 'Roboto','Arial', sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: #3498DB;
+    margin-right: 5px;
+  }
+}
