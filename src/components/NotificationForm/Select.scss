@@ -1,0 +1,168 @@
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.select {
+  width: 100% !important;
+  height: 35px !important;
+
+  &__placeholder {
+    color: #6C757D !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    font-family: 'Roboto', 'Arial', sans-serif !important;
+    line-height: 1.17 !important;
+    letter-spacing: 0 !important;
+  }
+
+  &__input {
+    width: 100% !important;
+    margin: 0 !important;
+    color: #000000 !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    font-family: 'Roboto', 'Arial', sans-serif !important;
+    line-height: 1.17 !important;
+    letter-spacing: 0 !important;
+  }
+
+  &__single-value {
+    color: #000000 !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    font-family: 'Roboto', 'Arial', sans-serif !important;
+    line-height: 1.17 !important;
+    letter-spacing: 0 !important;
+  }
+
+  &__control {
+    max-width: 100% !important;
+    width: 100% !important;
+    flex-wrap: nowrap !important;
+    overflow-x: hidden !important;
+    height: 35px !important;
+    min-height: 35px !important;
+    margin: 0 !important; ;
+    background-color: #F8F9FA !important ;
+    border: 1px solid #E9ECEF !important ;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+    transition: all 0.2s !important;
+  }
+
+  &__value-container {
+    height: 100% !important;
+    width: 100% !important;
+    padding: 0 0 0 8px !important;
+    flex-wrap: nowrap !important;
+    overflow-x: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    cursor: text !important;
+
+    &--is-multi {
+      width: 100% !important;
+      overflow: hidden !important;
+      white-space: nowrap !important;
+      text-overflow: ellipsis !important;
+    }
+
+    &--has-value {
+      width: 100% !important;
+      overflow: hidden !important;
+      white-space: nowrap !important;
+      text-overflow: ellipsis !important;
+    }
+  }
+
+  &__input-container {
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+  }
+
+  &__indicator-separator {
+
+  }
+
+  &__indicators {
+    height: 100% !important;
+    cursor: pointer !important;
+  }
+
+  &__indicator {
+    padding: 4px !important;
+    color: #3498DB99 !important;
+  }
+
+  &__multi-value {
+    background-color: #3498DB99 !important ;
+    border-radius: 10px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    flex-wrap: nowrap !important;
+
+    &__label {
+      color: white !important;
+      font-weight: 400 !important;
+      font-family: 'Roboto', 'Arial', sans-serif !important;
+      line-height: 1 !important;
+      letter-spacing: 0 !important;
+      font-size: 12px !important;
+    }
+
+    &__remove {
+      color: white !important;
+    }
+  }
+
+  &__menu {
+    animation: scaleIn 0.3s ease-in-out;
+    margin-top: 2px !important;
+    margin-bottom: 0 !important;
+    overflow: hidden !important;
+    background-color: #F8F9FA !important;
+    border: 1px solid #E9ECEF !important ;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+  }
+
+  &__menu-list {
+    max-height: 150px !important;
+    padding: 0 !important;
+    overflow: auto !important;
+  }
+
+  &__option {
+    padding: 8px !important ;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    font-family: 'Roboto', 'Arial', sans-serif !important;
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
+    background-color: transparent !important;
+    border-radius: 10px !important;
+    transition: background-color 0.05s linear !important;
+
+    &--is-focused {
+      background-color: transparent !important;
+    }
+
+    &--is-selected {
+      background-color: #3498DB !important;
+    }
+  }
+}
+
