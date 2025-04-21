@@ -46,7 +46,7 @@ export const authRoutes = [
 	{
 		path: FAVORITE_TRANSPORT_ROUTE + '/:route',
 		Component: FavoriteTransport,
-		Layout: EmptyLayout,
+		Layout: FavoriteEditLayout,
 	},
 ];
 

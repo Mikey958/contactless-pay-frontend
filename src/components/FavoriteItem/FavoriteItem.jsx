@@ -1,19 +1,28 @@
 import React from 'react';
 import s from './FavoriteItem.module.scss';
 import getImageSrc from '../../utils/getImageSrc.js';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import editIcon from '../../assets/icons/edit-icon.svg';
 import alertIcon from '../../assets/icons/favorite-alert-icon.svg';
 import { observer } from 'mobx-react-lite';
 import getNotificationWord from '../../utils/getNotificationWord.js';
-import { FAVORITE_EDIT_ROUTE } from '../../utils/consts.js';
+import {
+	FAVORITE_EDIT_ROUTE,
+	FAVORITE_TRANSPORT_ROUTE,
+} from '../../utils/consts.js';
 
 const FavoriteItem = observer(({ favorite }) => {
+	const navigate = useNavigate();
+
 	return (
-		<div className={s.card}>
+		<div
+			className={s.card}
+			onClick={() => navigate(FAVORITE_TRANSPORT_ROUTE + '/' + favorite.route)}
+		>
 			<Link
 				to={FAVORITE_EDIT_ROUTE + '/' + favorite.route}
 				className={s.card__edit}
+				onClick={(e) => e.stopPropagation()}
 			>
 				<img className={s.card__icon} src={editIcon} alt='Редактировать' />
 			</Link>

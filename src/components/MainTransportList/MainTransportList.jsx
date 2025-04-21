@@ -3,8 +3,9 @@ import { Context } from '../../main.jsx';
 import s from './MainTransportList.module.scss';
 import TransportItem from '../TransportItem/TransportItem.jsx';
 import { observer } from 'mobx-react-lite';
+import TransportItemToFavorite from '../TransportItemToFavorite/TransportItemToFavorite.jsx';
 
-const MainTransportList = observer(() => {
+const MainTransportList = observer(({ path = 'main' }) => {
 	const { transport } = useContext(Context);
 
 	return (
@@ -13,6 +14,10 @@ const MainTransportList = observer(() => {
 				<div className={s['main-transport-list__empty']}>
 					Транспорт не найден
 				</div>
+			) : path === 'favorite-add' ? (
+				transport.transports.map((transport) => (
+					<TransportItemToFavorite key={transport.id} transport={transport} />
+				))
 			) : (
 				transport.transports.map((transport) => (
 					<TransportItem key={transport.id} transport={transport} />
