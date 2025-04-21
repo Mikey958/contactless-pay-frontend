@@ -144,7 +144,9 @@ const NotificationForm = ({ data, onSave, index }) => {
 						</fieldset>
 					</div>
 					<div className={s.form__buttons}>
-						<button className={s.form__submit}>Сохранить изменения</button>
+						<button type='submit' className={s.form__submit}>
+							Сохранить изменения
+						</button>
 						<button className={s.form__delete}>
 							<img src={basketIcon} alt='Корзина' />
 							<p className={s['form__delete-text']}>Удалить из избранного</p>
