@@ -6,11 +6,23 @@ import s from './AllNearStops.module.scss';
 import { Link } from 'react-router-dom';
 import filterGrayIcon from '../../assets/icons/filter-gray-icon.svg';
 import filterBlueIcon from '../../assets/icons/filter-blue-icon.svg';
+import NearStop from '../../components/NearStop/NearStop.jsx';
+
+const filters = [
+	{ type: 'all', label: 'Все' },
+	{ type: 'bus', label: 'Автобус/Троллейбус' },
+	{ type: 'tram', label: 'Трамвай' },
+];
 
 const AllNearStops = observer(() => {
 	const { map } = useContext(Context);
 
 	const [active, setActive] = useState(false);
+	const [activeFilter, setActiveFilter] = useState('all');
+
+	const filteredStops = map.nearStops.filter(
+		(stop) => activeFilter === 'all' || stop.type === activeFilter
+	);
 
 	return (
 		<main className={s['near-stops']}>
@@ -26,6 +38,28 @@ const AllNearStops = observer(() => {
 					>
 						<img src={active ? filterBlueIcon : filterGrayIcon} alt='фильтер' />
 					</button>
+				</div>
+				{active && (
+					<div className={s['near-stops__filter']}>
+						<p className={s['near-stops__type']}>Тип транспорта</p>
+						<div className={s['near-stops__buttons']}>
+							{filters.map(({ type, label }) => (
+								<button
+									key={type}
+									className={`${s['near-stops__filter-button']} ${activeFilter === type ? s['near-stops__filter-button_active'] : ''}`}
+									onClick={() => setActiveFilter(type)}
+								>
+									{label}
+								</button>
+							))}
+						</div>
+					</div>
+				)}
+
+				<div className={s['near-stops__list']}>
+					{filteredStops.map((stop) => (
+						<NearStop key={stop.id} stop={stop} />
+					))}
 				</div>
 			</section>
 		</main>
