@@ -8,6 +8,7 @@ import {
 	HISTORY_ROUTE,
 	MAIN_ROUTE,
 	MAP_ROUTE,
+	STOP_ROUTE,
 	TRANSPORT_ROUTE,
 } from './consts.js';
 import Home from '../pages/Home/Home.jsx';
@@ -25,6 +26,7 @@ import EmptyHeaderLayout from '../layout/EmptyHeaderLayout.jsx';
 import { Component } from 'react';
 import AllNearStops from '../pages/AllNearStops/AllNearStops.jsx';
 import OnlyFooterLayout from '../layout/OnlyFooterLayout.jsx';
+import Stop from '../pages/Stop/Stop.jsx';
 
 export const authRoutes = [
 	{
@@ -69,6 +71,11 @@ export const publicRoutes = [
 		path: TRANSPORT_ROUTE + '/:number',
 		Component: Transport,
 		Layout: FullLayout,
+	},
+	{
+		path: STOP_ROUTE + '/:id',
+		Component: Stop,
+		Layout: EmptyHeaderLayout,
 	},
 	{
 		path: MAP_ROUTE,

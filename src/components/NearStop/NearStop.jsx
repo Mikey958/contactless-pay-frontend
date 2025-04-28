@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import arrowIcon from '../../assets/icons/arrow-blue-icon.svg';
 import NearStopTransportList from '../StopTransportList/NearStopTransportList.jsx';
 import { observer } from 'mobx-react-lite';
+import { STOP_ROUTE } from '../../utils/consts.js';
 
 const NearStop = observer(({ stop }) => {
 	const stopStyle = getStopStyle(stop.type);
@@ -30,7 +31,7 @@ const NearStop = observer(({ stop }) => {
 						>{`до остановки ${stop.distance} км`}</p>
 					</div>
 				</div>
-				<Link className={s.stop__link}>
+				<Link to={STOP_ROUTE + '/' + stop.id} className={s.stop__link}>
 					<img src={arrowIcon} alt='Стрелка вправо' />
 				</Link>
 			</div>

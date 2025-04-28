@@ -13,7 +13,6 @@ const Transport = observer(() => {
 	const obj = transport.transports.find(
 		(r) => String(r.number) === numberRoute
 	);
-	console.log(obj);
 
 	return (
 		<main className={s.transport}>
