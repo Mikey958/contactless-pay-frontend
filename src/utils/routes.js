@@ -1,4 +1,5 @@
 import {
+	ALL_NEARS_STOPS,
 	CHANGE_GEOLOCATION_ROUTE,
 	FAVORITE_ADD_ROUTE,
 	FAVORITE_EDIT_ROUTE,
@@ -20,7 +21,10 @@ import AddToFavorite from '../pages/AddToFavorite/AddToFavorite.jsx';
 import Transport from '../pages/Transport/Transport.jsx';
 import FavoriteEdit from '../pages/FavoriteEdit/FavoriteEdit.jsx';
 import FavoriteTransport from '../pages/FavoriteTransport/FavoriteTransport.jsx';
-import FavoriteEditLayout from '../layout/FavoriteEditLayout.jsx';
+import EmptyHeaderLayout from '../layout/EmptyHeaderLayout.jsx';
+import { Component } from 'react';
+import AllNearStops from '../pages/AllNearStops/AllNearStops.jsx';
+import OnlyFooterLayout from '../layout/OnlyFooterLayout.jsx';
 
 export const authRoutes = [
 	{
@@ -41,12 +45,17 @@ export const authRoutes = [
 	{
 		path: FAVORITE_EDIT_ROUTE + '/:route',
 		Component: FavoriteEdit,
-		Layout: FavoriteEditLayout,
+		Layout: EmptyHeaderLayout,
 	},
 	{
 		path: FAVORITE_TRANSPORT_ROUTE + '/:route',
 		Component: FavoriteTransport,
-		Layout: FavoriteEditLayout,
+		Layout: EmptyHeaderLayout,
+	},
+	{
+		path: ALL_NEARS_STOPS,
+		Component: AllNearStops,
+		Layout: EmptyLayout,
 	},
 ];
 
@@ -64,7 +73,7 @@ export const publicRoutes = [
 	{
 		path: MAP_ROUTE,
 		Component: MapPage,
-		Layout: FullLayout,
+		Layout: OnlyFooterLayout,
 	},
 	{
 		path: CHANGE_GEOLOCATION_ROUTE,

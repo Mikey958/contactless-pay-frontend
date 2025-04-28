@@ -10,3 +10,4 @@ export const FAVORITE_EDIT_ROUTE = '/favorite-routes/edit'; // Редактир�
 export const FAVORITE_TRANSPORT_ROUTE = '/favorite-routes/transport'; // Страница Маршрута в Избранном
 
 export const MAP_ROUTE = '/map'; // Карта
+export const ALL_NEARS_STOPS = '/map/near-stops'; // Ближайшие остановки

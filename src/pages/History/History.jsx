@@ -4,17 +4,18 @@ import basketIcon from '../../assets/icons/basket_icon.svg';
 import { Context } from '../../main.jsx';
 import HistoryTransportList from '../../components/HistoryTransportList/HistoryTransportList.jsx';
 import { observer } from 'mobx-react-lite';
+import IntroBlock from '../../components/IntroBlock/IntroBlock.jsx';
 
 const History = observer(() => {
 	const { history } = useContext(Context);
 
 	return (
 		<main className={s.history}>
-			<section className={s.history__card}>
-				<h1 className={s.history__title}>История поездок</h1>
-				<p className={s.history__text}>{`Отслеживайте все ваши транспортные
-				платежи`}</p>
-			</section>
+			<IntroBlock
+				title='История поездок'
+				description={'Отслеживайте все ваши транспортные\n' + 'платежи'}
+				marginBottom='0'
+			/>
 
 			<section className={s.history__transports}>
 				<div className={s.history__wrapper}>

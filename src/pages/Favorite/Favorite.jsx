@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { FAVORITE_ADD_ROUTE } from '../../utils/consts.js';
 import { observer } from 'mobx-react-lite';
 import FavoriteList from '../../components/FavoriteList/FavoriteList.jsx';
+import IntroBlock from '../../components/IntroBlock/IntroBlock.jsx';
 
 const Favorite = observer(() => {
 	const { favorite } = useContext(Context);
@@ -16,13 +17,12 @@ const Favorite = observer(() => {
 				<FavoriteEmpty />
 			) : (
 				<>
-					<div className={s['favorite-page__welcome']}>
-						<h1 className={s['favorite-page__title']}>Избранное</h1>
-						<p
-							className={s['favorite-page__text']}
-						>{`Быстрый доступ к вашим любимым
-						маршрутам`}</p>
-					</div>
+					<IntroBlock
+						title='Избранное'
+						description={`Быстрый доступ к вашим любимым
+						маршрутам`}
+						marginBottom='10px'
+					/>
 					<section className={s['favorite-page__favorite']}>
 						<div className={s['favorite-page__saved']}>
 							<h2 className={s['favorite-page__subtitle']}>

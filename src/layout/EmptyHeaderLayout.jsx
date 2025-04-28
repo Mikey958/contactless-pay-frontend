@@ -4,7 +4,7 @@ import Header from '../components/Header/Header.jsx';
 import Footer from '../components/Footer/Footer.jsx';
 import OnlyLinkHeader from '../components/OnlyLinkHeader/OnlyLinkHeader.jsx';
 
-const FavoriteEditLayout = ({ children }) => {
+const EmptyHeaderLayout = ({ children }) => {
 	return (
 		<div className={s.layout}>
 			<OnlyLinkHeader />
@@ -14,4 +14,4 @@ const FavoriteEditLayout = ({ children }) => {
 	);
 };
 
-export default FavoriteEditLayout;
+export default EmptyHeaderLayout;
