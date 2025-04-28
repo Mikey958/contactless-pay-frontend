@@ -1,0 +1,64 @@
+.stop-route {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  gap: 10px;
+  padding: 15px;
+  background-color: #f2f2f2;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #e9ecef;
+
+  &__info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__header {
+    box-shadow: var(--sds-size-depth-0) var(--sds-size-depth-025) var(--sds-size-depth-100) var(--sds-size-depth-0) var(--sds-color-black-100);
+    gap: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 89px;
+  }
+
+  &__circle {
+    aspect-ratio: 1/1;
+    min-width: 40px;
+    min-height: 40px;
+    width: 13.7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+
+  &__title {
+    text-align: center;
+    font-family: 'Roboto','Arial', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.19;
+    letter-spacing: 0;
+    color: white;
+  }
+
+  &__list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+  }
+}

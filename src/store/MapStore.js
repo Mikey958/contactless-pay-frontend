@@ -1390,13 +1390,54 @@ export default class MapStore {
 				nearTransports: [],
 			},
 			{
-				id: 155,
+				id: 155, //ТЕСТ
 				name: 'Студенческая (Блюхера)',
 				lat: 56.8580902,
 				lon: 60.6555739,
 				type: 'tram',
-				transports: [],
-				nearTransports: [],
+				transports: [
+					{
+						id: 1,
+						route: 82,
+						number: 'А123БВ',
+						direction: 'ЖБИ - СТЦ Мега',
+						status: 'прибывает',
+						price: 30,
+					},
+					{
+						id: 2,
+						route: 82,
+						number: 'А123БВ',
+						direction: 'ЖБИ - СТЦ Мега',
+						status: 'прибывает',
+						price: 30,
+					},
+					{
+						id: 3,
+						route: 82,
+						number: 'А123БВ',
+						direction: 'ЖБИ - СТЦ Мега',
+						status: 'прибывает',
+						price: 30,
+					},
+				],
+				nearTransports: [
+					{
+						id: 1,
+						routes: [42, 125, 42],
+						next: 'Профессорская',
+					},
+					{
+						id: 2,
+						routes: [42, 125, 42],
+						next: 'Профессорская',
+					},
+					{
+						id: 3,
+						routes: [42, 125, 42],
+						next: 'Профессорская',
+					},
+				],
 			},
 			{
 				id: 156,
@@ -8977,13 +9018,54 @@ export default class MapStore {
 				nearTransports: [],
 			},
 			{
-				id: 998,
+				id: 998, // ОСТАНОВКА ДЛЯ ТЕСТОВ
 				name: 'Данилы Зверева (Сулимова)',
 				lat: 56.8609862,
 				lon: 60.651971,
 				type: 'bus',
-				transports: [],
-				nearTransports: [],
+				transports: [
+					{
+						id: 1,
+						route: 82,
+						number: 'А123БВ',
+						direction: 'ЖБИ - СТЦ Мега',
+						status: 'прибывает',
+						price: 30,
+					},
+					{
+						id: 2,
+						route: 82,
+						number: 'А123БВ',
+						direction: 'ЖБИ - СТЦ Мега',
+						status: 'прибывает',
+						price: 30,
+					},
+					{
+						id: 3,
+						route: 82,
+						number: 'А123БВ',
+						direction: 'ЖБИ - СТЦ Мега',
+						status: 'прибывает',
+						price: 30,
+					},
+				],
+				nearTransports: [
+					{
+						id: 1,
+						routes: [42, 125, 42],
+						next: 'Профессорская',
+					},
+					{
+						id: 2,
+						routes: [42, 125, 42],
+						next: 'Профессорская',
+					},
+					{
+						id: 3,
+						routes: [42, 125, 42],
+						next: 'Профессорская',
+					},
+				],
 			},
 			{
 				id: 999,

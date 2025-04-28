@@ -3,11 +3,18 @@ import s from './NearStopTransportsItem.module.scss';
 import arrowIcon from '../../assets/icons/full-arrow-icon.svg';
 import getStopStyle from '../../utils/getStopStyle.js';
 
-const NearStopTransportsItem = ({ transports, type }) => {
+const NearStopTransportsItem = ({ transports, type, color }) => {
 	const transportsStyle = getStopStyle(type);
 
 	return (
-		<div className={s.transports}>
+		<div
+			className={s.transports}
+			style={
+				color.length > 0
+					? { borderColor: color, borderWidth: '0 0.5px 0.5px 0.5px' }
+					: {}
+			}
+		>
 			<div className={s.transports__routes}>
 				{transports.routes.map((route, index) => (
 					<div

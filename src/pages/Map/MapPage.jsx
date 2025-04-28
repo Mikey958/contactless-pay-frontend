@@ -6,13 +6,14 @@ import { Context } from '../../main.jsx';
 import placeMarkBlueIcon from '../../assets/icons/placemark_blue_icon.svg';
 import placeMarkGreenIcon from '../../assets/icons/placemark_green_icon.svg';
 import IntroBlock from '../../components/IntroBlock/IntroBlock.jsx';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import arrowIcon from '../../assets/icons/arrow-blue-icon.svg';
 import SliceStopsList from '../../components/StopsList/SliceStopsList.jsx';
-import { ALL_NEARS_STOPS } from '../../utils/consts.js';
+import { ALL_NEARS_STOPS, STOP_ROUTE } from '../../utils/consts.js';
 
 const MapPage = observer(() => {
 	const { map } = useContext(Context);
+	const navigate = useNavigate();
 
 	const [bounds, setBounds] = useState(null);
 	const [zoom, setZoom] = useState(12);
@@ -72,6 +73,7 @@ const MapPage = observer(() => {
 										balloonContent: 'Остановка',
 									}}
 									options={getIconOptions(stop.type)}
+									onClick={() => navigate(STOP_ROUTE + '/' + stop.id)}
 								/>
 							))}
 					</YMap>
