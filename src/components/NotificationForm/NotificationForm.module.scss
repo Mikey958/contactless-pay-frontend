@@ -3,9 +3,9 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  box-sizing: border-box;
   width: 100%;
   margin-top: 8px;
-  box-sizing: border-box;
 
   &__header {
     display: flex;
@@ -45,12 +45,12 @@
   }
 
   &__main {
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
+    box-sizing: border-box;
     width: 100%;
     margin: 0;
     padding: 10px 10px 15px;
@@ -84,51 +84,51 @@
   }
 
   &__subtitle {
-    font-family: "Roboto", 'Arial', sans-serif;
+    color: black;
     font-weight: 500;
     font-size: 12px;
+    font-family: "Roboto", 'Arial', sans-serif;
     line-height: 1.17;
     letter-spacing: 0;
-    color: black;
   }
 
   &__container {
-    width: 100%;
     display: flex;
     flex-direction: row;
-    gap: 10px;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
+    width: 100%;
   }
 
   &__wrapper {
-    max-width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     gap: 10px;
+    max-width: 100%;
   }
 
   &__time {
-    font-family: 'Roboto', 'Arial', sans-serif;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1;
-    letter-spacing: 0;
-    color: black;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    outline: none;
-    border-radius: 10px;
-    padding-left: 10px;
-    border: 1px solid #E9ECEF;
-    background-color: #F8F9FA;
     box-sizing: border-box;
-    min-height: 35px;
     width: 100%;
+    min-height: 35px;
+    padding-left: 10px;
+    color: black;
+    font-weight: 400;
+    font-size: 12px;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    line-height: 1;
+    letter-spacing: 0;
+    background-color: #F8F9FA;
+    border: 1px solid #E9ECEF;
+    border-radius: 10px;
+    outline: none;
     aspect-ratio: 129/35;
 
     &::placeholder {
@@ -137,54 +137,54 @@
   }
 
   &__buttons {
-    margin-top: 10px;
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     gap: 4px;
+    width: 100%;
+    margin-top: 10px;
   }
 
   &__submit {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: none;
     width: 100%;
-    aspect-ratio: 290/36;
     min-height: 36px;
-    border-radius: 10px;
-    outline: none;
-    background-color: #3498DB;
-    font-family: 'Roboto', 'Arial', sans-serif;
+    color: white;
     font-weight: 500;
     font-size: 14px;
+    font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1;
     letter-spacing: 0;
-    color: white;
+    background-color: #3498DB;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    aspect-ratio: 290/36;
   }
 
   &__delete {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #DD4D4D;
+    gap: 5px;
     width: 100%;
-    aspect-ratio: 290/36;
     min-height: 36px;
+    background-color: white;
+    border: 1px solid #DD4D4D;
     border-radius: 10px;
     outline: none;
-    background-color: white;
-    gap: 5px;
+    aspect-ratio: 290/36;
   }
 
   &__delete-text {
-    font-family: 'Roboto', 'Arial', sans-serif;
+    color: #DD4D4D;
     font-weight: 500;
     font-size: 14px;
+    font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1;
     letter-spacing: 0;
-    color: #DD4D4D;
   }
 }
 
