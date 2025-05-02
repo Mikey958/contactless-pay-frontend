@@ -1,14 +1,16 @@
 @keyframes scaleIn {
   0% {
-    opacity: 0;
     transform: scale(0.9);
+    opacity: 0;
   }
+
   50% {
     opacity: 0.3;
   }
+
   100% {
-    opacity: 1;
     transform: scale(1);
+    opacity: 1;
   }
 }
 
@@ -46,13 +48,13 @@
   }
 
   &__control {
-    max-width: 100% !important;
-    width: 100% !important;
     flex-wrap: nowrap !important;
-    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
     height: 35px !important;
     min-height: 35px !important;
-    margin: 0 !important; ;
+    margin: 0 !important;
+    overflow-x: hidden !important; ;
     background-color: #F8F9FA !important ;
     border: 1px solid #E9ECEF !important ;
     border-radius: 10px !important;
@@ -61,10 +63,10 @@
   }
 
   &__value-container {
-    height: 100% !important;
-    width: 100% !important;
-    padding: 0 0 0 8px !important;
     flex-wrap: nowrap !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 0 0 8px !important;
     overflow-x: hidden !important;
     white-space: nowrap !important;
     text-overflow: ellipsis !important;
@@ -108,19 +110,19 @@
   }
 
   &__multi-value {
+    flex-wrap: nowrap !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
     background-color: #3498DB99 !important ;
     border-radius: 10px !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    flex-wrap: nowrap !important;
 
     &__label {
       color: white !important;
       font-weight: 400 !important;
+      font-size: 12px !important;
       font-family: 'Roboto', 'Arial', sans-serif !important;
       line-height: 1 !important;
       letter-spacing: 0 !important;
-      font-size: 12px !important;
     }
 
     &__remove {
@@ -129,7 +131,6 @@
   }
 
   &__menu {
-    animation: scaleIn 0.3s ease-in-out;
     margin-top: 2px !important;
     margin-bottom: 0 !important;
     overflow: hidden !important;
@@ -137,6 +138,7 @@
     border: 1px solid #E9ECEF !important ;
     border-radius: 10px !important;
     box-shadow: none !important;
+    animation: scaleIn 0.3s ease-in-out;
   }
 
   &__menu-list {

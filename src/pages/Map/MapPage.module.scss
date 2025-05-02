@@ -2,27 +2,26 @@
   display: flex;
   flex: 1 0 auto;
   flex-direction: column;
-
   align-items: center;
   box-sizing: border-box;
   width: 100%;
-  padding: 30px 15px 15px 15px;
+  padding: 30px 15px 15px;
   background-color: #f2f2f2;
   border-width: 1px 0;
   border-style: solid;
   border-color: #e9ecef;
 
   &__container {
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid #e9ecef;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    aspect-ratio: 1/1;
     min-height: 290px;
+    overflow: hidden;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    aspect-ratio: 1/1;
   }
 
   &__map {
@@ -32,9 +31,6 @@
   }
 
   &__legend {
-    background-color: white;
-    border-top: 1px solid #E9ECEF;
-
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -42,8 +38,10 @@
     gap: 10px;
     width: 100%;
     min-height: 82px;
-    aspect-ratio: 290/82;
     padding: 22px 15px;
+    background-color: white;
+    border-top: 1px solid #E9ECEF;
+    aspect-ratio: 290/82;
   }
 
   &__legend-elem {
@@ -55,40 +53,40 @@
   }
 
   &__legend-text {
-    font-family: 'Roboto', 'Arial', sans-serif;
+    color: black;
     font-weight: 400;
     font-size: 12px;
+    font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1.17;
     letter-spacing: 0;
-    color: black;
   }
 
   &__near-container {
-    margin-top: 29px;
-    width: 100%;
-    gap: 15px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 29px;
   }
 
   &__near-wrapper {
-    align-self: flex-start;
     display: flex;
     flex-direction: row;
-    gap: 10px;
     justify-content: flex-start;
     align-items: flex-end;
+    align-self: flex-start;
+    gap: 10px;
   }
 
   &__near-subtitle {
-    font-family: 'Roboto', 'Arial', sans-serif;
+    color: black;
     font-weight: 500;
     font-size: 12px;
+    font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1.17;
     letter-spacing: 0;
-    color: black;
   }
 
   &__link {
@@ -96,16 +94,16 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-end;
-    text-decoration: none;
     gap: 5px;
+    text-decoration: none;
   }
 
   &__link-text {
-    font-family: 'Roboto', 'Arial', sans-serif;
+    color: #3498DB;
     font-weight: 500;
     font-size: 12px;
+    font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1.17;
     letter-spacing: 0;
-    color: #3498DB;
   }
 }

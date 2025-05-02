@@ -1,10 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Context } from '../../main.jsx';
 import { observer } from 'mobx-react-lite';
 import s from './Transport.module.scss';
 import getImageSrc from '../../utils/getImageSrc.js';
 import likeIcon from '../../assets/icons/like-button.svg';
+import Modal from '../../components/Modal/Modal.jsx';
+import ModalHistoryContent from '../../components/ModalContent/ModalHistoryContent/ModalHistoryContent.jsx';
+import ModalQrContent from '../../components/ModalContent/ModalQrContent/ModalQrContent.jsx';
+import ModalLinksContent from '../../components/ModalContent/ModalLinksContent/ModalLinksContent.jsx';
+import ModalQuestionContent from '../../components/ModalContent/ModalQuestionContent/ModalQuestionContent.jsx';
+import ModalMessageContent from '../../components/ModalContent/ModalMessageContent/ModalMessageContent.jsx';
 
 const Transport = observer(() => {
 	const { number: numberRoute } = useParams();
@@ -13,6 +19,16 @@ const Transport = observer(() => {
 	const obj = transport.transports.find(
 		(r) => String(r.number) === numberRoute
 	);
+
+	const [modalQrActive, setModalQrActive] = useState(false);
+	const [modalLinksActive, setModalLinksActive] = useState(false);
+	const [modalQuestionActive, setModalQuestionActive] = useState(false);
+	const [modalMessageActive, setModalMessageActive] = useState(false);
+
+	const handleClick = () => {
+		window.open('https://istudent.urfu.ru', '_blank');
+		setModalQuestionActive(true);
+	};
 
 	return (
 		<main className={s.transport}>
@@ -50,14 +66,42 @@ const Transport = observer(() => {
 					<p className={s.transport__price}>{`${obj.price}.0₽`}</p>
 				</div>
 			</section>
-			<button className={s.transport__pay}>Оплатить проезд</button>
-			<button className={s.transport__links}>
+			<button className={s.transport__pay} onClick={handleClick}>
+				Оплатить проезд
+			</button>
+			<button
+				className={s.transport__links}
+				onClick={() => setModalLinksActive(true)}
+			>
 				Дополнительные ссылки для оплаты
 			</button>
 			<div className={s.transport__buttons}>
-				<button className={s.transport__button}>Сгенерировать QR</button>
+				<button
+					className={s.transport__button}
+					onClick={() => setModalQrActive(true)}
+				>
+					Сгенерировать QR
+				</button>
 				<button className={s.transport__button}>Поделиться</button>
 			</div>
+			<Modal active={modalQrActive} setActive={setModalQrActive}>
+				<ModalQrContent onClose={() => setModalQrActive(false)} />
+			</Modal>
+			<Modal active={modalLinksActive} setActive={setModalLinksActive}>
+				<ModalLinksContent
+					onClose={() => setModalLinksActive(false)}
+					open={() => setModalQuestionActive(true)}
+				/>
+			</Modal>
+			<Modal active={modalQuestionActive} setActive={setModalQuestionActive}>
+				<ModalQuestionContent
+					onClose={() => setModalQuestionActive(false)}
+					openModal={() => setModalMessageActive(true)}
+				/>
+			</Modal>
+			<Modal active={modalMessageActive} setActive={setModalMessageActive}>
+				<ModalMessageContent onClose={() => setModalMessageActive(false)} />
+			</Modal>
 		</main>
 	);
 });

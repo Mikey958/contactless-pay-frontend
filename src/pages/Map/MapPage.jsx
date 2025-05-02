@@ -21,8 +21,8 @@ const MapPage = observer(() => {
 	const getIconOptions = (type) => ({
 		iconLayout: 'default#image',
 		iconImageHref: type === 'tram' ? placeMarkGreenIcon : placeMarkBlueIcon,
-		iconImageSize: [10, 10],
-		iconImageOffset: [-5, -5],
+		iconImageSize: [30, 30],
+		iconImageOffset: [-15, -15],
 	});
 
 	const handleBoundsChange = (e) => {
