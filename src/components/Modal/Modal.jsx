@@ -1,8 +1,13 @@
 import React, { useEffect } from 'react';
 import s from './Modal.module.scss';
-import crossIcon from '../../assets/icons/cross-icon.svg';
+import crossDarkIcon from '../../assets/icons/cross-icon.svg';
+import crossWhiteIcon from '../../assets/icons/cross-light-icon.svg';
+
+import { useThemeContext } from '../../contexts/ThemeContext.js';
 
 const Modal = ({ active, setActive, children }) => {
+	const { theme } = useThemeContext();
+
 	useEffect(() => {
 		if (active) {
 			document.body.style.overflow = 'hidden';
@@ -23,9 +28,17 @@ const Modal = ({ active, setActive, children }) => {
 			<div
 				className={`${s.modal__content} ${active ? s.modal__content_active : ''}`}
 				onClick={(e) => e.stopPropagation()}
+				style={
+					theme === 'light'
+						? { border: '1px solid #ffffff' }
+						: { border: '1px solid #404040' }
+				}
 			>
 				<button className={s.modal__close} onClick={() => setActive(false)}>
-					<img src={crossIcon} alt='Крестик' />
+					<img
+						src={theme === 'light' ? crossDarkIcon : crossWhiteIcon}
+						alt='Крестик'
+					/>
 				</button>
 				{children}
 			</div>

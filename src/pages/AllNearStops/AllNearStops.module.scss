@@ -7,10 +7,9 @@
   box-sizing: border-box;
   width: 100%;
   padding: 10px 15px 0;
-  background-color: #f2f2f2;
-  border-width: 1px 0;
-  border-style: solid;
-  border-color: #e9ecef;
+  background-color: var(--first-background-color);
+  border: 0;
+  transition: background-color 0.2s linear;
 
   &__link {
     align-self: flex-start;
@@ -34,12 +33,13 @@
   }
 
   &__title {
-    color: black;
+    color: var(--first-text-color);
     font-weight: 500;
     font-size: 20px;
     font-family: 'Roboto','Arial', sans-serif;
     line-height: 1.15;
     letter-spacing: 0;
+    transition: color 0.2s linear;
   }
 
   &__button {
@@ -49,8 +49,8 @@
     min-width: 35px;
     min-height: 35px;
     padding: 0;
-    background-color: #F8F9FA;
-    border: 1px solid #E9ECEF;
+    background-color: var(--input-background-color);
+    border: 1px solid var(--border-color);
     border-radius: 10px;
     outline: none;
     transition: all 0.15s ease-in;
@@ -72,19 +72,21 @@
     width: 100%;
     min-height: 79px;
     padding: 10px 8px 20px;
-    background-color: #F8F9FA;
-    border: 1px solid #E9ECEF;
+    background-color: var(--card-background-color);
+    border: 1px solid var(--border-color);
     border-radius: 10px;
     aspect-ratio: 290/79;
+    transition: all 0.2s linear;
   }
 
   &__type {
-    color: black;
+    color: var(--first-text-color);
     font-weight: 500;
     font-size: 12px;
     font-family: 'Roboto','Arial', sans-serif;
     line-height: 1.17;
     letter-spacing: 0;
+    transition: color 0.2s linear;
   }
 
   &__buttons {
@@ -101,15 +103,15 @@
     align-items: center;
     min-height: 23px;
     padding: 0 10px;
-    color: black;
+    color: var(--first-text-color);
     font-weight: 400;
     font-size: 12px;
     font-family: 'Roboto','Arial', sans-serif;
-    line-height: 100%;
+    line-height: 1;
     letter-spacing: 0;
     text-align: center;
-    background-color: #FFFFFFCC;
-    border: 1px solid #E9ECEF;
+    background-color: var(--filter-button-background-color);
+    border: 1px solid var(--border-color);
     border-radius: 10px;
     outline: none;
     transition: all 0.15s ease-in;

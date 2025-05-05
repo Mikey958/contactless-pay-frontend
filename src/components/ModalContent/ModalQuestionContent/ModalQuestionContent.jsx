@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import s from './ModalQuestionContent.module.scss';
 import funnySmileIcon from '../../../assets/icons/funny-smile-icon.svg';
 import sadSmileIcon from '../../../assets/icons/sad-smile-icon.svg';
+import { Context } from '../../../main.jsx';
 
-const ModalQuestionContent = ({ onClose, openModal }) => {
-	const handleClick = () => {
+const ModalQuestionContent = ({ onClose, openModal, obj }) => {
+	const { history } = useContext(Context);
+
+	const handleClickYes = () => {
 		onClose();
 		openModal();
+	};
+
+	const handleClickNo = () => {
+		history.addToHistory(obj);
+		onClose();
 	};
 
 	return (
@@ -16,14 +24,14 @@ const ModalQuestionContent = ({ onClose, openModal }) => {
 			<div className={s.content__buttons}>
 				<button
 					className={`${s.content__button} ${s.content__button_yes}`}
-					onClick={onClose}
+					onClick={handleClickNo}
 				>
 					<img src={funnySmileIcon} alt='Веселый смайлик' />
 					<p className={s.content__true}>Да, всё получилось</p>
 				</button>
 				<button
 					className={`${s.content__button} ${s.content__button_no}`}
-					onClick={handleClick}
+					onClick={handleClickYes}
 				>
 					<img src={sadSmileIcon} alt='Грустный смайлик' />
 					<p className={s.content__false}>Нет, не получилось</p>

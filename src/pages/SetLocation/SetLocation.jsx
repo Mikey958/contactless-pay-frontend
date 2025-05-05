@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
 import s from './SetLocation.module.scss';
 import { Link } from 'react-router-dom';
-import arrowIcon from '../../assets/icons/arrow-icon.svg';
+import arrowDarkIcon from '../../assets/icons/arrow-icon.svg';
+import arrowLightIcon from '../../assets/icons/arrow-light-button.svg';
 import SearchBar from '../../components/SearchBar/SearchBar.jsx';
 import { Context } from '../../main.jsx';
+import { useThemeContext } from '../../contexts/ThemeContext.js';
 
 const SetLocation = () => {
+	const { theme } = useThemeContext();
 	const { user } = useContext(Context);
 
 	const handleSearch = (query) => {
@@ -18,7 +21,7 @@ const SetLocation = () => {
 				<Link to={-1} className={s.location__button}>
 					<img
 						className={s.location__arrow}
-						src={arrowIcon}
+						src={theme === 'dark' ? arrowLightIcon : arrowDarkIcon}
 						alt='Стрелка влево'
 					/>
 				</Link>

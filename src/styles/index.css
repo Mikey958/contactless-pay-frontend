@@ -1,0 +1,102 @@
+@import url('reset.css');
+@import url('../assets/fonts/Roboto/roboto.css');
+
+:root {
+	--bg: white;
+	scroll-behavior: smooth;
+	font-family: 'Roboto', 'Arial', sans-serif;
+}
+
+:root[data-theme='dark'] {
+	--legend-background-color: #3F3F3F;
+	--map: invert(90%) hue-rotate(180deg);
+	--first-background-color: #262626;
+	--second-background-color: #262626;
+	--nav-background-color: #2f2f2f;
+	--input-background-color: #2f2f2f;
+	--switch-background-color: #414141;
+	--switch-thumb-background-color: #7a7a7a;
+	--card-background:
+		linear-gradient(90deg, #2f2f2f 50%, rgb(92 92 92 / 50%) 100%),
+		url('../assets/images/city-dark-image.png');
+	--border-color: #404040;
+	--border-qr-color: #d9d9d9;
+	--filter-button-background-color: #3b3b3bcc;
+	--city-button-background-color: #383838;
+	--city-button-text-color: #cbcbcb;
+	--card-background-color: #2f2f2f;
+	--notification-setting-background-color: #252525;
+	--modal-background-color: #2f2f2f;
+	--map-block-background-color: #ffffff;
+	--first-text-color: #ffffff;
+	--second-text-color: #cbcbcb;
+	--third-text-color: #ffffff;
+	--fourth-text-color: #c1c1c1;
+	--fifth-text-color: #cbcbcb;
+	--sixth-text-color: #c1c1c1;
+	--seventh-text-color: #cbcbcb;
+	--blue-card-color: #2f89c5;
+	--blue-gradient: linear-gradient(
+		90deg,
+		#2f89c5 49.98%,
+		rgb(47 137 197 / 60%) 100%
+	);
+	--green-gradient: linear-gradient(
+		90deg,
+		#71b65e 49.98%,
+		rgb(113 182 94 / 60%) 100%
+	);
+}
+
+:root[data-theme='light'] {
+	--legend-background-color: #FFFFFF;
+	--map: none;
+	--first-background-color: #ffffff;
+	--second-background-color: #f2f2f2;
+	--nav-background-color: #ffffff;
+	--input-background-color: #f8f9fa;
+	--switch-background-color: #e9ecef;
+	--switch-thumb-background-color: #6c757d;
+	--border-color: #e9ecef;
+	--card-background:
+		linear-gradient(90deg, #f8f9fa 49.52%, rgb(188 228 253 / 50%) 100%),
+		url('../assets/images/city-image.png');
+	--filter-button-background-color: #ffffffcc;
+	--city-button-background-color: #f8f9fa;
+	--city-button-text-color: #000000;
+	--card-background-color: #f8f9fa;
+	--notification-setting-background-color: #f8f9fa;
+	--modal-background-color: #ffffff;
+	--map-block-background-color: #3f3f3f;
+	--first-text-color: #000000;
+	--second-text-color: #00000080;
+	--third-text-color: #202020;
+	--fourth-text-color: #808080;
+	--fifth-text-color: #6c757d;
+	--sixth-text-color: #7c7d7d;
+	--seventh-text-color: #808080;
+	--blue-card-color: #3498db;
+	--blue-gradient: linear-gradient(
+		90deg,
+		#3498db 49.98%,
+		rgb(52 152 219 / 60%) 100%
+	);
+	--green-gradient: linear-gradient(
+		90deg,
+		#71b65e 49.98%,
+		rgb(113 182 94 / 60%) 100%
+	);
+}
+
+body {
+	margin: 0 auto;
+	background-color: var(--first-background-color);
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	min-height: 100vh;
+}

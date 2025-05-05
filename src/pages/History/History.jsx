@@ -9,8 +9,6 @@ import Modal from '../../components/Modal/Modal.jsx';
 import ModalHistoryContent from '../../components/ModalContent/ModalHistoryContent/ModalHistoryContent.jsx';
 
 const History = observer(() => {
-	const { history } = useContext(Context);
-
 	const [modalActive, setModalActive] = useState(false);
 
 	return (
@@ -25,7 +23,6 @@ const History = observer(() => {
 				<div className={s.history__wrapper}>
 					<h2 className={s.history__subtitle}>Последние поездки</h2>
 					<button
-						// onClick={() => history.clearHistory()}
 						onClick={() => setModalActive(true)}
 						className={s.history__clear}
 					>

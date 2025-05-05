@@ -8,9 +8,10 @@
   min-width: 290px;
   min-height: 63px;
   padding: 15px 5px 10px 13px;
-  background-color: #ffffff;
-  border: 1px solid #E9ECEF;
+  background-color: var(--card-background-color);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
+  transition: all 0.2s linear;
 
   &__edit {
     position: absolute;
@@ -52,21 +53,23 @@
 
   &__number {
     margin-bottom: 3px;
-    color: #000000;
+    color: var(--first-text-color);
     font-weight: 500;
     font-size: 14px;
     font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1.14;
     letter-spacing: 0;
+    transition: color 0.2s linear;
   }
 
   &__direction {
-    color: #00000080;
+    color: var(--second-text-color);
     font-weight: 400;
     font-size: 12px;
     font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1.17;
     letter-spacing: 0;
+    transition: color 0.2s linear;
   }
 
   &__alert-wrapper {

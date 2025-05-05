@@ -7,13 +7,11 @@
 	width: 100%;
 	min-height: 93px;
   padding: 10px 15px 15px;
-	background:
-		linear-gradient(90deg, #f8f9fa 49.52%, rgb(188 228 253 / 50%) 100%),
-		url('../../assets/images/city-image.png');
+	background: var(--card-background);
 	background-repeat: no-repeat;
 	background-position: right center;
 	background-size: contain;
-	border: 1px solid #e9ecef;
+	border: 1px solid var(--border-color);
 	border-radius: 10px;
 
   &__wrapper {
@@ -22,13 +20,13 @@
     align-items: center;
     width: 68px;
     height: 24px;
-    color: black;
+    color: var(--first-text-color);
     font-weight: 500;
     font-size: 14px;
     font-family: 'Roboto','Arial', sans-serif;
     line-height: 1;
     letter-spacing: 0;
-    background-color: #E9ECEF;
+    background-color: var(--border-color);
     border-radius: 5px;
   }
 
@@ -50,7 +48,7 @@
 
   &__stopname {
     padding: 0;
-    color: #202020;
+    color: var(--third-text-color);
     font-weight: 400;
     font-size: 10px;
     font-family: 'Roboto','Arial', sans-serif;

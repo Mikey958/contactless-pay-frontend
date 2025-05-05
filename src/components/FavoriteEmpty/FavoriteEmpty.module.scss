@@ -35,13 +35,14 @@
   }
 
   &__empty-title {
-    color: black;
+    color: var(--first-text-color);
     font-weight: 500;
     font-size: 16px;
     font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1.19;
     letter-spacing: 0;
     text-align: center;
+    transition: color 0.2s linear;
   }
 
   &__empty-text {

@@ -7,7 +7,8 @@
   box-sizing: border-box;
   width: 100%;
   padding: 10px 15px 30px;
-  background-color: white;
+  background-color: var(--first-background-color);
+  transition: background-color 0.2s linear;
 
   &__button {
     display: flex;
@@ -36,23 +37,25 @@
 
   &__title {
     margin-bottom: 10px;
-    color: black;
+    color: var(--first-text-color);
     font-weight: 500;
     font-size: 20px;
     font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1.15;
     letter-spacing: 0;
+    transition: color 0.2s linear;
   }
 
   &__text {
     margin-bottom: 15px;
-    color: #6c757d;
+    color: var(--fifth-text-color);
     font-weight: 400;
     font-size: 12px;
     font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1.17;
     letter-spacing: 0;
     white-space: pre-line;
+    transition: color 0.2s linear;
   }
 
   &__popular-container {
@@ -64,7 +67,7 @@
   }
 
   &__subtitle {
-    color: black;
+    color: var(--first-text-color);
     font-weight: 500;
     font-size: 16px;
     font-family: 'Roboto', 'Arial', sans-serif;

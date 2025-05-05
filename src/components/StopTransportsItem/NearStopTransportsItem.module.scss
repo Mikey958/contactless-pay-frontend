@@ -7,11 +7,12 @@
 	width: 100%;
 	min-height: 32px;
 	padding: 8px 12px;
-	background-color: #ffffff;
+	background-color: var(--legend-background-color);
 	border-width: 0 1px 1px;
 	border-style: solid;
-	border-color: #e9ecef;
+	border-color: var(--border-color);
 	aspect-ratio: 290/32;
+	transition: all 0.2s linear;
 
 	&:last-child {
 		border-radius: 0 0 10px 10px;

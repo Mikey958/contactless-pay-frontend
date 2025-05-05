@@ -7,10 +7,11 @@
   box-sizing: border-box;
   width: 100%;
   padding: 15px;
-  background-color: #f2f2f2;
+  background-color: var(--second-background-color);
   border-width: 1px 0;
   border-style: solid;
-  border-color: #e9ecef;
+  border-color: var(--border-color);
+  transition: all 0.2s linear;
 
   &__welcome {
     display: flex;
@@ -20,11 +21,7 @@
     gap: 10px;
     width: 100%;
     min-height: 128px;
-    background: linear-gradient(
-                    90deg,
-                    #3498db 49.98%,
-                    rgb(52 152 219 / 60%) 100%
-    );
+    background: var(--blue-gradient);
     border-radius: 10px;
     aspect-ratio: 290/128;
   }
@@ -88,7 +85,7 @@
 
   &__subtitle {
     align-self: flex-start;
-    color: black;
+    color: var(--first-text-color);
     font-weight: 500;
     font-size: 12px;
     font-family: 'Roboto', 'Arial', sans-serif;

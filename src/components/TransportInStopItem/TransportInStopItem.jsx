@@ -1,6 +1,5 @@
 import React from 'react';
 import s from './TransportInStopItem.module.scss';
-import getStopStyle from '../../utils/getStopStyle.js';
 import { useNavigate } from 'react-router-dom';
 import { TRANSPORT_ROUTE } from '../../utils/consts.js';
 
