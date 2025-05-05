@@ -1,12 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import s from './AddToFavorite.module.scss';
 import { Link } from 'react-router-dom';
 import arrowIcon from '../../assets/icons/arrow-icon.svg';
+import arrowLightIcon from '../../assets/icons/arrow-light-button.svg';
 import SearchBar from '../../components/SearchBar/SearchBar.jsx';
-import { Context } from '../../main.jsx';
 import MainTransportList from '../../components/MainTransportList/MainTransportList.jsx';
+import { useThemeContext } from '../../contexts/ThemeContext.js';
 
 const AddToFavorite = () => {
+	const { theme } = useThemeContext();
 	const handleSearch = (query) => {
 		console.log('Поиск:', query);
 	};
@@ -16,7 +18,7 @@ const AddToFavorite = () => {
 			<Link to={-1} className={s['favorite-add__button']}>
 				<img
 					className={s['favorite-add__arrow']}
-					src={arrowIcon}
+					src={theme === 'dark' ? arrowLightIcon : arrowIcon}
 					alt='Стрелка влево'
 				/>
 			</Link>
