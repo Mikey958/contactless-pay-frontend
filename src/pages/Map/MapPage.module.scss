@@ -6,10 +6,11 @@
   box-sizing: border-box;
   width: 100%;
   padding: 30px 15px 15px;
-  background-color: #f2f2f2;
-  border-width: 1px 0;
+  background-color: var(--second-background-color);
+  border-width: 0 0 1px;
   border-style: solid;
-  border-color: #e9ecef;
+  border-color: var(--border-color);
+  transition: all 0.2s linear;
 
   &__container {
     display: flex;
@@ -19,15 +20,16 @@
     width: 100%;
     min-height: 290px;
     overflow: hidden;
-    border: 1px solid #e9ecef;
+    border: 1px solid var(--border-color);
     border-radius: 10px;
     aspect-ratio: 1/1;
+    transition: border-color 0.2s linear;
   }
 
   &__map {
     width: 100%;
-    aspect-ratio: 290/208;
     min-height: 208px;
+    aspect-ratio: 290/208;
   }
 
   &__legend {
@@ -39,8 +41,8 @@
     width: 100%;
     min-height: 82px;
     padding: 22px 15px;
-    background-color: white;
-    border-top: 1px solid #E9ECEF;
+    background-color: var(--legend-background-color);
+    border-top: 1px solid var(--border-color);
     aspect-ratio: 290/82;
   }
 
@@ -49,16 +51,17 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
   }
 
   &__legend-text {
-    color: black;
+    color: var(--first-text-color);
     font-weight: 400;
     font-size: 12px;
     font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1.17;
     letter-spacing: 0;
+    transition: color 0.2s linear;
   }
 
   &__near-container {
@@ -81,12 +84,13 @@
   }
 
   &__near-subtitle {
-    color: black;
+    color: var(--first-text-color);
     font-weight: 500;
     font-size: 12px;
     font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1.17;
     letter-spacing: 0;
+    transition: color 0.2s linear;
   }
 
   &__link {

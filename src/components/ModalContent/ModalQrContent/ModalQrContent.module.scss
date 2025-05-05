@@ -9,32 +9,33 @@
 
 	&__title {
 		margin-bottom: 5px;
-		color: #000000;
+		color: var(--first-text-color);
 		font-weight: 500;
 		font-size: 16px;
 		font-family: 'Roboto', 'Arial', sans-serif;
 		line-height: 1.19;
 		letter-spacing: 0;
 		text-align: center;
+		transition: color 0.2s linear;
 	}
 
   &__wrapper {
     position: relative;
-    aspect-ratio: 1/1;
-    width: 100%;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
     border: 1px solid #D9D9D9;
     border-radius: 20px;
-    box-sizing: border-box;
+    aspect-ratio: 1/1;
   }
 
   &__qr {
-    border-radius: 19px;
     width: 100%;
     height: 100%;
+    border-radius: 19px;
   }
 
 	&__button {

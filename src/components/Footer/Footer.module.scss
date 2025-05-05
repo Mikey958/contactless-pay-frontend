@@ -9,7 +9,8 @@
   width: 100%;
   height: 80px;
   padding: 10px 0 20px;
-  background-color: #ffffff;
+  background-color: var(--nav-background-color);
+  transition: background-color 0.2s linear;
 
   &__nav {
     display: flex;
@@ -31,10 +32,6 @@
     outline: none;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s linear ;
 
-
-    &:hover {
-      transform: scale(1.1);
-    }
   }
 
   &__area {

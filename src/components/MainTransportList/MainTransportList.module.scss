@@ -11,15 +11,16 @@
     align-items: center;
     width: 100%;
     min-height: 54px;
-    color: #6C757D;
+    color: var(--fifth-text-color);
     font-weight: 500;
     font-size: 12px;
     font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1;
     letter-spacing: 0;
-    background-color: #F8F9FA;
-    border: 1px solid #E9ECEF;
+    background-color: var(--card-background-color);
+    border: 1px solid var(--border-color);
     border-radius: 10px;
     aspect-ratio: 290/54;
+    transition: all 0.2s linear;
   }
 }

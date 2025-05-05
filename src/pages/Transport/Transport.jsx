@@ -95,6 +95,7 @@ const Transport = observer(() => {
 			</Modal>
 			<Modal active={modalQuestionActive} setActive={setModalQuestionActive}>
 				<ModalQuestionContent
+					obj={obj}
 					onClose={() => setModalQuestionActive(false)}
 					openModal={() => setModalMessageActive(true)}
 				/>

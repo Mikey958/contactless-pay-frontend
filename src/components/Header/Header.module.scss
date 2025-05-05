@@ -12,8 +12,10 @@
 	width: 100%;
 	height: 61px;
 	padding: 0 15px;
-	background-color: #ffffff;
-	transition: box-shadow 0.3s ease;
+	background-color: var(--nav-background-color);
+	transition:
+		box-shadow 0.3s ease,
+		background-color 0.2s linear;
 
 	&_scrolled {
 		box-shadow: 0 3px 8px 1px rgb(0 0 0 / 25%);
@@ -34,18 +36,9 @@
 		width: 35px;
 		height: 35px;
 		padding: 0;
-		background-color: #f8f9fa;
+		background-color: var(--input-background-color);
 		border: none;
 		border-radius: 50%;
-		transition: all 0.3s;
-
-		&:hover {
-			background-color: #f1f1f1;
-		}
-	}
-
-	&__buttonIcon {
-		width: 19px;
-		height: 19px;
+		transition: all 0.2s;
 	}
 }

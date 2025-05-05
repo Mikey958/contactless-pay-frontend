@@ -7,9 +7,10 @@
   width: 290px;
   height: 114px;
   padding: 15px 15px 15px 13px;
-  background-color: #F8F9FA;
-  border: 1px solid #E9ECEF;
+  background-color: var(--card-background-color);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
+  transition: all 0.2s linear;
 
   &__transport {
     display: flex;
@@ -44,17 +45,18 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-end;
     gap: 5px;
   }
 
   &__route {
-    color: black;
+    color: var(--first-text-color);
     font-weight: 500;
     font-size: 14px;
     font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1;
     letter-spacing: 0;
+    transition: color 0.2s linear;
   }
 
   &__wrapper {
@@ -64,26 +66,29 @@
     box-sizing: border-box;
     height: 16px;
     padding: 0 6px;
-    background-color: #E9ECEF;
+    background-color: var(--border-color);
     border-radius: 5px;
+    transition: all 0.2s linear;
   }
 
   &__number {
-    color: #808080;
+    color: var(--fourth-text-color);
     font-weight: 400;
     font-size: 11px;
     font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1;
     letter-spacing: 0;
+    transition: color 0.2s linear;
   }
 
   &__direction {
-    color: #00000080;
+    color: var(--second-text-color);
     font-weight: 400;
     font-size: 12px;
     font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1.17;
     letter-spacing: 0;
+    transition: color 0.2s linear;
   }
 
   &__stations {
@@ -92,12 +97,13 @@
     justify-content: flex-start;
     align-items: flex-start;
     gap: 0;
-    color: #202020;
+    color: var(--third-text-color);
     font-weight: 400;
     font-size: 12px;
     font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1.1;
     letter-spacing: 0;
+    transition: color 0.2s linear;
   }
 
   &__status-wrapper {

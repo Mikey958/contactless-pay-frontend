@@ -7,10 +7,11 @@
   box-sizing: border-box;
   width: 100%;
   padding: 15px;
-  background-color: #f2f2f2;
+  background-color: var(--second-background-color);
   border-width: 1px 0;
   border-style: solid;
-  border-color: #e9ecef;
+  border-color: var(--border-color);
+  transition: all 0.2s linear;
 
   &__welcome {
     display: flex;
@@ -21,13 +22,10 @@
     width: 100%;
     min-height: 128px;
     margin-bottom: 9px;
-    background: linear-gradient(
-                    90deg,
-                    #3498db 49.98%,
-                    rgb(52 152 219 / 60%) 100%
-    );
+    background: var(--blue-gradient);
     border-radius: 10px;
     aspect-ratio: 290/128;
+    transition: background-color 0.2s linear;
   }
 
   &__circle {
@@ -83,15 +81,17 @@
     gap: 10px;
     width: 100%;
     padding: 10px 10px 0 15px;
-    background-color: #F8F9FA;
-    border: 1px solid #E9ECEF;
+    background-color: var(--card-background-color);
+    border: 1px solid var(--border-color);
     border-radius: 10px;
+    transition: all 0.2s linear;
   }
 
   &__like {
     position: absolute;
     top: 10px;
     right: 10px;
+    z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,21 +113,23 @@
   }
 
   &__title {
-    color: #6C757D;
+    color: var(--fifth-text-color);
     font-weight: 400;
     font-size: 12px;
     font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1.17;
     letter-spacing: 0;
+    transition: color 0.2s linear;
   }
 
   &__text {
-    color: black;
+    color: var(--first-text-color);
     font-weight: 500;
     font-size: 12px;
     font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1.17;
     letter-spacing: 0;
+    transition: color 0.2s linear;
   }
 
   &__price-wrapper {
@@ -138,8 +140,9 @@
     width: 100%;
     min-height: 43px;
     padding-right: 5px;
-    border-top: 1px solid #E9ECEF;
+    border-top: 1px solid var(--border-color);
     aspect-ratio: 263/43;
+    transition: border-color 0.2s linear;
   }
 
   &__price {
@@ -160,11 +163,12 @@
     font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1;
     letter-spacing: 0;
-    background-color: #3498DB;
+    background-color: var(--blue-card-color);
     border: none;
     border-radius: 10px;
     outline: none;
     aspect-ratio: 290/36;
+    transition: background-color 0.2s linear;
   }
 
   &__links {

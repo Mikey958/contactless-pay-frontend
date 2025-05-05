@@ -13,9 +13,10 @@
 		width: 100%;
 		min-height: 48px;
 		padding: 10px;
-		background-color: #ffffff;
-		border: 1px solid #e9ecef;
+		background-color: var(--nav-background-color);
+		border: 1px solid var(--border-color);
 		aspect-ratio: 290/48;
+    transition: all 0.2s linear;
 	}
 
 	&__container {
@@ -39,21 +40,23 @@
   }
 
   &__name {
-    color: #000000;
+    color: var(--first-text-color);
     font-weight: 500;
     font-size: 12px;
     font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1.17;
     letter-spacing: 0;
+    transition: color 0.2s linear;
   }
 
   &__distance {
-    color: #808080;
+    color: var(--seventh-text-color);
     font-weight: 400;
     font-size: 10px;
     font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1.2;
     letter-spacing: 0;
+    transition: color 0.2s linear;
   }
 
   &__link {

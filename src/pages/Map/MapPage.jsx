@@ -1,6 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import s from './MapPage.module.scss';
-import { Placemark, YMaps, Map as YMap } from '@pbe/react-yandex-maps';
+import {
+	Placemark,
+	YMaps,
+	Map as YMap,
+	FullscreenControl,
+} from '@pbe/react-yandex-maps';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../../main.jsx';
 import placeMarkBlueIcon from '../../assets/icons/placemark_blue_icon.svg';
@@ -10,8 +15,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import arrowIcon from '../../assets/icons/arrow-blue-icon.svg';
 import SliceStopsList from '../../components/StopsList/SliceStopsList.jsx';
 import { ALL_NEARS_STOPS, STOP_ROUTE } from '../../utils/consts.js';
+import { useThemeContext } from '../../contexts/ThemeContext.js';
 
 const MapPage = observer(() => {
+	const { theme } = useThemeContext();
 	const { map } = useContext(Context);
 	const navigate = useNavigate();
 
@@ -42,6 +49,18 @@ const MapPage = observer(() => {
 			stop.lon < northEastLon
 		);
 	};
+
+	useEffect(() => {
+		const observer = new MutationObserver(() => {
+			const fsMap = document.querySelector('.ymaps-2-1-79-map');
+			if (fsMap) {
+				fsMap.style.filter = 'var(--map)';
+			}
+		});
+		observer.observe(document.body, { childList: true, subtree: true });
+
+		return () => observer.disconnect();
+	}, [theme]);
 
 	return (
 		<main className={s['map-page']}>
@@ -76,18 +95,27 @@ const MapPage = observer(() => {
 									onClick={() => navigate(STOP_ROUTE + '/' + stop.id)}
 								/>
 							))}
+						<FullscreenControl />
 					</YMap>
 				</YMaps>
 
 				<div className={s['map-page__legend']}>
 					<div className={s['map-page__legend-elem']}>
-						<img src={placeMarkBlueIcon} alt='Голубая точка' />
+						<img
+							className={s['map-page__placemark']}
+							src={placeMarkBlueIcon}
+							alt='Голубая точка'
+						/>
 						<p className={s['map-page__legend-text']}>
 							Автобусная/троллейбусная остановка
 						</p>
 					</div>
 					<div className={s['map-page__legend-elem']}>
-						<img src={placeMarkGreenIcon} alt='Зеленая точка' />
+						<img
+							className={s['map-page__placemark']}
+							src={placeMarkGreenIcon}
+							alt='Зеленая точка'
+						/>
 						<p className={s['map-page__legend-text']}>Трамвайная остановка</p>
 					</div>
 				</div>

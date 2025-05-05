@@ -18,12 +18,6 @@ const NotificationForm = ({ data, onSave, index }) => {
 	const [endTime, setEndTime] = useState('');
 	const [interval, setInterval] = useState(null);
 
-	console.log(stopName);
-	console.log(activeDays);
-	console.log(startTime);
-	console.log(endTime);
-	console.log(interval);
-
 	const options = [
 		{ value: 'ЖБИ', label: 'ЖБИ' },
 		{ value: 'СТЦ Мега', label: 'СТЦ Мега' },
