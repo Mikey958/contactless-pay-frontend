@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import s from './SearchBar.module.scss';
 import searchIcon from '../../assets/icons/search-icon.svg';
 
-const SearchBar = ({ placeholder, onSearch }) => {
-	const [query, setQuery] = useState('');
+const SearchBar = ({ placeholder, onSearch, initialValue = '' }) => {
+	const [query, setQuery] = useState(initialValue);
+
+	useEffect(() => {
+		setQuery(initialValue);
+	}, [initialValue]);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();

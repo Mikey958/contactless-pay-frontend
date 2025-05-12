@@ -6,7 +6,7 @@ import themeDarkIcon from '../../assets/icons/change-theme-icon.svg';
 import themeLightIcon from '../../assets/icons/theme_light-icon.svg';
 import SearchBar from '../SearchBar/SearchBar.jsx';
 import { useNavigate } from 'react-router-dom';
-import { CHANGE_GEOLOCATION_ROUTE } from '../../utils/consts.js';
+import { CHANGE_GEOLOCATION_ROUTE, SEARCH_ROUTE } from '../../utils/consts.js';
 import { useThemeContext } from '../../contexts/ThemeContext.js';
 
 const Header = () => {
@@ -30,6 +30,7 @@ const Header = () => {
 
 	const handleSearch = (query) => {
 		console.log('Поиск:', query);
+		navigate(`${SEARCH_ROUTE}?query=${encodeURIComponent(query.trim())}`);
 	};
 
 	return (
