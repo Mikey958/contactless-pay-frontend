@@ -8,6 +8,7 @@ import {
 	HISTORY_ROUTE,
 	MAIN_ROUTE,
 	MAP_ROUTE,
+	SEARCH_ROUTE,
 	STOP_ROUTE,
 	TRANSPORT_ROUTE,
 } from './consts.js';
@@ -27,6 +28,7 @@ import { Component } from 'react';
 import AllNearStops from '../pages/AllNearStops/AllNearStops.jsx';
 import OnlyFooterLayout from '../layout/OnlyFooterLayout.jsx';
 import Stop from '../pages/Stop/Stop.jsx';
+import SearchPage from '../pages/SearchPage/SearchPage.jsx';
 
 export const authRoutes = [
 	{
@@ -66,6 +68,11 @@ export const publicRoutes = [
 		path: MAIN_ROUTE,
 		Component: Home,
 		Layout: FullLayout,
+	},
+	{
+		path: SEARCH_ROUTE,
+		Component: SearchPage,
+		Layout: EmptyLayout,
 	},
 	{
 		path: TRANSPORT_ROUTE + '/:number',

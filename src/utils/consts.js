@@ -11,4 +11,6 @@ export const FAVORITE_TRANSPORT_ROUTE = '/favorite-routes/transport'; // Стр�
 
 export const MAP_ROUTE = '/map'; // Карта
 export const ALL_NEARS_STOPS = '/map/near-stops'; // Ближайшие остановки
-export const STOP_ROUTE = '/map/stop';
+export const STOP_ROUTE = '/map/stop'; // Страница остановки
+
+export const SEARCH_ROUTE = '/search'; // Страница поиска

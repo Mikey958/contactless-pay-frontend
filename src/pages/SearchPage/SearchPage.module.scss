@@ -1,0 +1,145 @@
+.search-page {
+	display: flex;
+	flex: 1 0 auto;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 27px;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px 15px 15px;
+	background-color: var(--first-background-color);
+	transition: background-color 0.2s linear;
+
+	&__back-button {
+		align-self: flex-start;
+		min-width: 24px;
+		min-height: 24px;
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		gap: 10px;
+		width: 100%;
+	}
+
+	&__title {
+		color: var(--first-text-color);
+		font-weight: 500;
+		font-size: 20px;
+		font-family: 'Roboto', 'Arial', sans-serif;
+		line-height: 1.15;
+		letter-spacing: 0;
+	}
+
+	&__search-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		gap: 10px;
+		width: 100%;
+	}
+
+	&__filter-button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-width: 35px;
+		min-height: 35px;
+		padding: 0;
+		background-color: var(--input-background-color);
+		border: 1px solid var(--border-color);
+		border-radius: 10px;
+		outline: none;
+		transition: all 0.15s ease-in;
+		aspect-ratio: 1/1;
+
+		&_active {
+			background-color: #84ceff33;
+			border: 1px transparent;
+			outline: none;
+		}
+	}
+
+	&__filter-menu {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		gap: 10px;
+		width: 100%;
+		min-height: 142px;
+		padding: 3px 5px 5px;
+		border: 1px solid var(--border-color);
+		border-radius: 10px;
+	}
+
+	&__top-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		gap: 12px;
+		width: 100%;
+		padding: 7px 2px 12px 3px;
+		background-color: transparent;
+		border-bottom: 1px solid var(--border-color);
+	}
+
+	&__menu-text {
+		color: var(--first-text-color);
+		font-weight: 500;
+		font-size: 12px;
+		font-family: 'Roboto', 'Arial', sans-serif;
+		line-height: 1.17;
+		letter-spacing: 0;
+	}
+
+	&__menu-buttons {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 4px;
+	}
+
+	&__menu-button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 23px;
+		padding: 0 9px;
+		color: var(--first-text-color);
+		font-weight: 400;
+		font-size: 12px;
+		font-family: 'Roboto', 'Arial', sans-serif;
+		line-height: 1;
+		letter-spacing: 0;
+		background-color: var(--filter-button-background-color);
+		border: 1px solid var(--border-color);
+		border-radius: 10px;
+		outline: none;
+		transition: all 0.15s ease-in;
+
+		&_active {
+			color: white;
+			background-color: #3498db;
+			border: 1px solid transparent;
+		}
+	}
+
+	&__bottom-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		gap: 13px;
+		width: 100%;
+		padding: 0 0 0 3px;
+	}
+}
