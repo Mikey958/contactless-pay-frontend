@@ -1,15 +1,17 @@
 include .env
 export
 
-IMAGE_NAME=qr-frontend
-
-.PHONY: up build down
+.PHONY: up build down rebuild
 
 build:
-    docker build -t $(IMAGE_NAME) .
+    docker compose build
 
-up: build
-    docker run -d --rm -p $(PORT):80 --name $(IMAGE_NAME) $(IMAGE_NAME)
+up:
+    docker compose up -d --build
 
 down:
-    docker stop $(IMAGE_NAME)
+    docker compose down
+
+rebuild:
+    docker compose down
+    docker compose up -d --build
