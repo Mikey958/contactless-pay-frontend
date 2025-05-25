@@ -12,7 +12,7 @@ function App() {
 			const tg = window.Telegram.WebApp;
 			tg.ready();
 			const user = tg.initDataUnsafe.user;
-			alert(user.id, user.username, user.first_name);
+			alert(`${user.first_name} ${user.username}`);
 		} else {
 			console.log('Запущено вне Telegram WebApp');
 		}
