@@ -75,7 +75,7 @@ export const publicRoutes = [
 		Layout: EmptyLayout,
 	},
 	{
-		path: TRANSPORT_ROUTE + '/:number',
+		path: TRANSPORT_ROUTE + '/:uuid',
 		Component: Transport,
 		Layout: FullLayout,
 	},

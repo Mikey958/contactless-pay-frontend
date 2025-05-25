@@ -10,18 +10,18 @@ const HistoryItem = ({ history }) => {
 			<div className={s.card__history}>
 				<img
 					className={s.card__icon}
-					src={getImageSrc(history.type)}
-					alt={history.type}
+					src={getImageSrc(history.transport_type)}
+					alt={history.transport_type}
 				/>
 				<div className={s.card__info}>
 					<div className={s['card__main-info']}>
 						<div className={s.card__naming}>
-							<p className={s.card__route}>{history.route}</p>
+							<p className={s.card__route}>{history.route_number}</p>
 							<div className={s.card__wrapper}>
-								<p className={s.card__number}>{history.number}</p>
+								<p className={s.card__number}>{history.state_number}</p>
 							</div>
 						</div>
-						<p className={s.card__direction}>{history.direction}</p>
+						<p className={s.card__direction}>{history.route_title}</p>
 					</div>
 					<div className={s['card__date-wrapper']}>
 						<div className={s.card__moment}>
@@ -44,7 +44,7 @@ const HistoryItem = ({ history }) => {
 				</div>
 			</div>
 			<div className={s.card__status}>
-				<div className={s.card__price}>{`${history.price.toFixed(1)}₽`}</div>
+				<div className={s.card__price}>{`${history.price}.0₽`}</div>
 			</div>
 		</div>
 	);

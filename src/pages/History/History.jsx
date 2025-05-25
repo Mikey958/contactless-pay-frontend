@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import s from './History.module.scss';
 import basketIcon from '../../assets/icons/basket_icon.svg';
 import { Context } from '../../main.jsx';

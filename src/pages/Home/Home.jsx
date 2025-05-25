@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import s from './Home.module.scss';
 import geoIcon from '../../assets/icons/geo-icon.svg';
 import cardDonateIcon from '../../assets/icons/card-donate-icon.svg';
@@ -11,9 +11,11 @@ import {
 	MAP_ROUTE,
 } from '../../utils/consts.js';
 import MainTransportList from '../../components/MainTransportList/MainTransportList.jsx';
+import { Context } from '../../main.jsx';
 
 const Home = () => {
 	const navigate = useNavigate();
+	const { user } = useContext(Context);
 
 	return (
 		<main className={s.home}>
@@ -34,7 +36,7 @@ const Home = () => {
 							src={geoIcon}
 							alt='геолокация'
 						/>
-						<p className={s['home__city']}>Екатеринбург</p>
+						<p className={s['home__city']}>{user.user.city__name}</p>
 					</button>
 				</div>
 				<div className={s.home__cards}>

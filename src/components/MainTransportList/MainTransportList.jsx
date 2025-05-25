@@ -6,7 +6,7 @@ import { observer } from 'mobx-react-lite';
 import TransportItemToFavorite from '../TransportItemToFavorite/TransportItemToFavorite.jsx';
 
 const MainTransportList = observer(({ path = 'main' }) => {
-	const { transport } = useContext(Context);
+	const { transport, nearTransport } = useContext(Context);
 
 	return (
 		<div className={s['main-transport-list']}>
@@ -19,8 +19,8 @@ const MainTransportList = observer(({ path = 'main' }) => {
 					<TransportItemToFavorite key={transport.id} transport={transport} />
 				))
 			) : (
-				transport.transports.map((transport) => (
-					<TransportItem key={transport.id} transport={transport} />
+				nearTransport.nearTransports.map((transport) => (
+					<TransportItem key={transport.transport_uuid} transport={transport} />
 				))
 			)}
 		</div>

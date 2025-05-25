@@ -2,7 +2,7 @@ import React from 'react';
 import s from './ModalQrContent.module.scss';
 import QRCode from 'react-qr-code';
 
-const ModalQrContent = ({ onClose, value }) => {
+const ModalQrContent = ({ value }) => {
 	return (
 		<div className={s.content}>
 			<p className={s.content__title}>QR-код для оплаты</p>

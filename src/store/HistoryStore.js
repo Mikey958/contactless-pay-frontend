@@ -2,38 +2,9 @@ import { makeAutoObservable } from 'mobx';
 
 export default class HistoryStore {
 	constructor() {
-		this._history = [
-			{
-				type: 'bus',
-				id: 1,
-				route: 82,
-				number: 'А123БВ',
-				direction: 'ЖБИ - СТЦ Мега',
-				date: '09.04.2025',
-				time: '02:26',
-				price: 30.0,
-			},
-			{
-				type: 'tram',
-				id: 2,
-				route: 82,
-				number: 'А123БВ',
-				direction: 'ЖБИ - СТЦ Мега',
-				date: '09.04.2025',
-				time: '02:26',
-				price: 30.0,
-			},
-			{
-				type: 'trolleybus',
-				id: 3,
-				route: 82,
-				number: 'А123БВ',
-				direction: 'ЖБИ - СТЦ Мега',
-				date: '09.04.2025',
-				time: '02:26',
-				price: 29.0,
-			},
-		];
+		const storedHistory = localStorage.getItem('transport_history');
+
+		this._history = storedHistory ? JSON.parse(storedHistory) : [];
 		makeAutoObservable(this);
 	}
 
@@ -52,15 +23,21 @@ export default class HistoryStore {
 			hour12: false,
 		});
 
-		this._history.push({
+		const newItem = {
+			id: Date.now(),
 			...transport,
 			date: formattedDate,
 			time: formattedTime,
-		});
+		};
+
+		this._history.push(newItem);
+
+		localStorage.setItem('transport_history', JSON.stringify(this._history));
 	}
 
 	clearHistory() {
 		this._history = [];
+		localStorage.removeItem('transport_history');
 	}
 
 	get history() {

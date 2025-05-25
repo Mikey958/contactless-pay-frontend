@@ -3,7 +3,11 @@ import { makeAutoObservable } from 'mobx';
 export default class UserStore {
 	constructor() {
 		this._isAuth = true;
-		this._user = {};
+		this._user = {
+			user_id: null,
+			city__name: 'Екатеринбург',
+			chat_id: null,
+		};
 		this._cities = [
 			{
 				id: 1,

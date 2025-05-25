@@ -7,6 +7,7 @@ import TransportStore from './store/TransportStore.js';
 import HistoryStore from './store/HistoryStore.js';
 import FavoriteStore from './store/FavoriteStore.js';
 import MapStore from './store/MapStore.js';
+import NearTransportStore from './store/NearTransportStore.js';
 
 export const Context = createContext(null);
 
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')).render(
 			value={{
 				user: new UserStore(),
 				transport: new TransportStore(),
+				nearTransport: new NearTransportStore(),
 				history: new HistoryStore(),
 				favorite: new FavoriteStore(),
 				map: new MapStore(),

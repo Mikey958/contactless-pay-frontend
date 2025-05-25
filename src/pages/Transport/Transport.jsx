@@ -1,34 +1,80 @@
-import React, { useContext, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Context } from '../../main.jsx';
 import { observer } from 'mobx-react-lite';
 import s from './Transport.module.scss';
 import getImageSrc from '../../utils/getImageSrc.js';
 import likeIcon from '../../assets/icons/like-button.svg';
 import Modal from '../../components/Modal/Modal.jsx';
-import ModalHistoryContent from '../../components/ModalContent/ModalHistoryContent/ModalHistoryContent.jsx';
 import ModalQrContent from '../../components/ModalContent/ModalQrContent/ModalQrContent.jsx';
 import ModalLinksContent from '../../components/ModalContent/ModalLinksContent/ModalLinksContent.jsx';
 import ModalQuestionContent from '../../components/ModalContent/ModalQuestionContent/ModalQuestionContent.jsx';
 import ModalMessageContent from '../../components/ModalContent/ModalMessageContent/ModalMessageContent.jsx';
+import { MoonLoader } from 'react-spinners';
+import { clsx } from 'clsx';
+import { createLink } from '../../utils/createLink.js';
 
 const Transport = observer(() => {
-	const { number: numberRoute } = useParams();
-	const { transport } = useContext(Context);
+	const { uuid } = useParams();
+	const [transport, setTransport] = useState(null);
 
-	const obj = transport.transports.find(
-		(r) => String(r.number) === numberRoute
-	);
+	useEffect(() => {
+		let cancelled = false;
+
+		const timeoutId = setTimeout(() => {
+			if (cancelled) return;
+
+			const mockTransportData = {
+				route_number: '82',
+				route_title: 'ЖБИ - СТЦ Мега',
+				route_id: '232',
+				transport_type: 'bus',
+				state_number: 'А123БВ',
+				price: 30,
+				is_favourite: true,
+				current_stop: 'ЖБИ',
+				next_stop: 'СТЦ Мега',
+				user_uuid: '123',
+				paytagid: [
+					{ id: 1, pay_tag_id: 123 },
+					{ id: 2, pay_tag_id: 132 },
+					{ id: 3, pay_tag_id: 112 },
+					{ id: 4, pay_tag_id: 122 },
+					{ id: 5, pay_tag_id: 122 },
+					{ id: 6, pay_tag_id: 122 },
+				],
+			};
+
+			setTransport(mockTransportData);
+		}, 1000);
+
+		return () => {
+			cancelled = true;
+			clearTimeout(timeoutId);
+		};
+	}, [uuid]);
 
 	const [modalQrActive, setModalQrActive] = useState(false);
 	const [modalLinksActive, setModalLinksActive] = useState(false);
 	const [modalQuestionActive, setModalQuestionActive] = useState(false);
 	const [modalMessageActive, setModalMessageActive] = useState(false);
 
-	const handleClick = () => {
-		window.open('https://istudent.urfu.ru', '_blank');
-		setModalQuestionActive(true);
+	const handleClick = (payTagObj) => {
+		if (payTagObj.pay_tag_id) {
+			const id = payTagObj.pay_tag_id;
+			window.open(createLink(id), '_blank');
+			setModalQuestionActive(true);
+		}
 	};
+
+	if (!transport) {
+		return (
+			<main className={clsx(s.transport, s.transport__loading)}>
+				<MoonLoader color='var(--first-text-color)' size={30} />
+			</main>
+		);
+	}
+
+	const [firstItem, ...restItems] = transport?.paytagid || [];
 
 	return (
 		<main className={s.transport}>
@@ -36,13 +82,13 @@ const Transport = observer(() => {
 				<div className={s.transport__circle}>
 					<img
 						className={s.transport__icon}
-						src={getImageSrc(obj.type, 'white')}
-						alt={obj.type}
+						src={getImageSrc(transport.transport_type, 'white')}
+						alt={transport.transport_type}
 					/>
 				</div>
-				<p className={s.transport__direction}>{obj.direction}</p>
+				<p className={s.transport__direction}>{transport.route_title}</p>
 				<div className={s['transport__route-wrapper']}>
-					<p className={s.transport__route}>{obj.route}</p>
+					<p className={s.transport__route}>{transport.route_number}</p>
 				</div>
 			</section>
 			<section className={s.transport__container}>
@@ -51,22 +97,25 @@ const Transport = observer(() => {
 				</button>
 				<div className={s.transport__wrapper}>
 					<p className={s.transport__title}>Номер транспортного средства</p>
-					<p className={s.transport__text}>{obj.number}</p>
+					<p className={s.transport__text}>{transport.state_number}</p>
 				</div>
 				<div className={s.transport__wrapper}>
 					<p className={s.transport__title}>Текущая остановка</p>
-					<p className={s.transport__text}>{obj.current}</p>
+					<p className={s.transport__text}>{transport.current_stop}</p>
 				</div>
 				<div className={s.transport__wrapper}>
 					<p className={s.transport__title}>Следующая остановка</p>
-					<p className={s.transport__text}>{obj.next}</p>
+					<p className={s.transport__text}>{transport.next_stop}</p>
 				</div>
 				<div className={s['transport__price-wrapper']}>
 					<p className={s.transport__title}>Цена проезда</p>
-					<p className={s.transport__price}>{`${obj.price}.0₽`}</p>
+					<p className={s.transport__price}>{`${transport.price}.0₽`}</p>
 				</div>
 			</section>
-			<button className={s.transport__pay} onClick={handleClick}>
+			<button
+				className={s.transport__pay}
+				onClick={() => handleClick(firstItem)}
+			>
 				Оплатить проезд
 			</button>
 			<button
@@ -85,17 +134,18 @@ const Transport = observer(() => {
 				<button className={s.transport__button}>Поделиться</button>
 			</div>
 			<Modal active={modalQrActive} setActive={setModalQrActive}>
-				<ModalQrContent onClose={() => setModalQrActive(false)} />
+				<ModalQrContent value={firstItem} />
 			</Modal>
 			<Modal active={modalLinksActive} setActive={setModalLinksActive}>
 				<ModalLinksContent
+					links={restItems}
 					onClose={() => setModalLinksActive(false)}
 					open={() => setModalQuestionActive(true)}
 				/>
 			</Modal>
 			<Modal active={modalQuestionActive} setActive={setModalQuestionActive}>
 				<ModalQuestionContent
-					obj={obj}
+					obj={transport}
 					onClose={() => setModalQuestionActive(false)}
 					openModal={() => setModalMessageActive(true)}
 				/>

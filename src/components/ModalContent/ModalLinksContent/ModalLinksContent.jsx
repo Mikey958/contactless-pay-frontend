@@ -1,11 +1,15 @@
 import React from 'react';
 import s from './ModalLinksContent.module.scss';
+import { createLink } from '../../../utils/createLink.js';
+import log from 'eslint-plugin-react/lib/util/log.js';
 
-const ModalLinksContent = ({ onClose, open }) => {
-	const handleClick = () => {
-		window.open('https://istudent.urfu.ru', '_blank');
-		onClose();
-		open();
+const ModalLinksContent = ({ onClose, open, links }) => {
+	const handleClick = (payTag) => {
+		if (payTag) {
+			window.open(createLink(payTag), '_blank');
+			onClose();
+			open();
+		}
 	};
 
 	return (
@@ -13,15 +17,15 @@ const ModalLinksContent = ({ onClose, open }) => {
 			<p className={s.content__title}>{`Дополнительные ссылки
 		для оплаты`}</p>
 			<div className={s.content__buttons}>
-				<button className={s.content__button} onClick={handleClick}>
-					ссылка 1
-				</button>
-				<button className={s.content__button} onClick={handleClick}>
-					ссылка 2
-				</button>
-				<button className={s.content__button} onClick={handleClick}>
-					ссылка 3
-				</button>
+				{links?.map((paytag, index) => (
+					<button
+						key={paytag.id}
+						className={s.content__button}
+						onClick={() => handleClick(paytag.pay_tag_id)}
+					>
+						{`ссылка ${index + 1}`}
+					</button>
+				))}
 			</div>
 		</div>
 	);

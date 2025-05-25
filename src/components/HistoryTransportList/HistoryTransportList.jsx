@@ -6,7 +6,6 @@ import { observer } from 'mobx-react-lite';
 
 const HistoryTransportList = observer(() => {
 	const { history } = useContext(Context);
-
 	return (
 		<div className={s['history-transport-list']}>
 			{history.history.length === 0 ? (
