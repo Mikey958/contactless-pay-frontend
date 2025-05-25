@@ -4,14 +4,14 @@ export
 .PHONY: up build down rebuild
 
 build:
-    docker compose build
+	docker compose build
 
 up:
-    docker compose up -d --build
+	docker compose up -d --build
 
 down:
-    docker compose down
+	docker compose down
 
 rebuild:
-    docker compose down
-    docker compose up -d --build
+	docker compose down
+	docker compose up -d --build
