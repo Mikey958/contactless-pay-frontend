@@ -6,6 +6,9 @@ import { ThemeContext } from './contexts/ThemeContext.js';
 
 function App() {
 	const { theme, setTheme } = useTheme();
+	const tg = window.Telegram.WebApp;
+	const user = tg.initDataUnsafe.user;
+	console.log(user);
 
 	return (
 		<ThemeContext.Provider value={{ theme, setTheme }}>
