@@ -7,16 +7,6 @@ import { ThemeContext } from './contexts/ThemeContext.js';
 
 function App() {
 	const { theme, setTheme } = useTheme();
-	useEffect(() => {
-		if (window.Telegram && window.Telegram.WebApp) {
-			const tg = window.Telegram.WebApp;
-			tg.ready();
-			const user = tg?.initDataUnsafe?.user;
-			alert(`${user?.first_name} ${user?.username}`);
-		} else {
-			console.log('Запущено вне Telegram WebApp');
-		}
-	}, []);
 
 	return (
 		<ThemeContext.Provider value={{ theme, setTheme }}>
