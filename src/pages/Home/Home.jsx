@@ -20,7 +20,7 @@ import ModalLocationContent from '../../components/ModalContent/ModalLocationCon
 const Home = observer(() => {
 	const navigate = useNavigate();
 	const { user } = useContext(Context);
-	const [showModal, setShowModal] = useState(true);
+	const [showModal, setShowModal] = useState(false);
 
 	useInitLocation(() => {
 		setShowModal(true);
