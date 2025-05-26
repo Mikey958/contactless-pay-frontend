@@ -8,6 +8,7 @@ import HistoryStore from './store/HistoryStore.js';
 import FavoriteStore from './store/FavoriteStore.js';
 import MapStore from './store/MapStore.js';
 import NearTransportStore from './store/NearTransportStore.js';
+import GeoStore from './store/GeoStore.js';
 
 export const Context = createContext(null);
 
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')).render(
 		<Context.Provider
 			value={{
 				user: new UserStore(),
+				geolocation: new GeoStore(),
 				transport: new TransportStore(),
 				nearTransport: new NearTransportStore(),
 				history: new HistoryStore(),
