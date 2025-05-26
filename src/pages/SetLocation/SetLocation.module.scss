@@ -110,6 +110,12 @@
     outline: none;
     cursor: pointer;
     transition: all 0.2s linear;
+
+    &_active {
+      color: white;
+      background-color: #3498DB;
+      border: 1px solid transparent;
+    }
   }
 
   &__main-buttons {

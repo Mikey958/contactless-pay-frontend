@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import s from './SetLocation.module.scss';
 import { Link } from 'react-router-dom';
 import arrowDarkIcon from '../../assets/icons/arrow-icon.svg';
@@ -6,10 +6,12 @@ import arrowLightIcon from '../../assets/icons/arrow-light-button.svg';
 import SearchBar from '../../components/SearchBar/SearchBar.jsx';
 import { Context } from '../../main.jsx';
 import { useThemeContext } from '../../contexts/ThemeContext.js';
+import { clsx } from 'clsx';
 
 const SetLocation = () => {
 	const { theme } = useThemeContext();
 	const { user } = useContext(Context);
+	const [activeCity, setActiveCity] = useState(null);
 
 	const handleSearch = (query) => {
 		console.log('Поиск:', query);
@@ -42,7 +44,14 @@ const SetLocation = () => {
 					<div className={s['location__cities-list']}>
 						{Array.isArray(user.cities) &&
 							user.cities.map((city) => (
-								<button key={city.id} className={s.location__city}>
+								<button
+									onClick={() => setActiveCity(city.id)}
+									key={city.id}
+									className={clsx(
+										s.location__city,
+										activeCity === city.id ? s.location__city_active : null
+									)}
+								>
 									{city.name}
 								</button>
 							))}
