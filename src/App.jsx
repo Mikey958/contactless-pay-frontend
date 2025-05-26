@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import AppRouter from './components/AppRouter.jsx';
 import { useTheme } from './hooks/useTheme.js';
 import { ThemeContext } from './contexts/ThemeContext.js';
+import { useEffect } from 'react';
 
 function App() {
 	const { theme, setTheme } = useTheme();
