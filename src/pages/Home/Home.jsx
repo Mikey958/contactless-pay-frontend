@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import s from './Home.module.scss';
 import geoIcon from '../../assets/icons/geo-icon.svg';
 import cardDonateIcon from '../../assets/icons/card-donate-icon.svg';
@@ -12,11 +12,19 @@ import {
 } from '../../utils/consts.js';
 import MainTransportList from '../../components/MainTransportList/MainTransportList.jsx';
 import { Context } from '../../main.jsx';
+import { observer } from 'mobx-react-lite';
+import { useInitLocation } from '../../hooks/useInitLocation.js';
+import Modal from '../../components/Modal/Modal.jsx';
 
-const Home = () => {
+const Home = observer(() => {
 	const navigate = useNavigate();
 	const { user } = useContext(Context);
+	const { geolocation } = useContext(Context);
+	const [showModal, setShowModal] = useState(false);
 
+	useInitLocation(() => {
+		setShowModal(true);
+	});
 	return (
 		<main className={s.home}>
 			<section className={s.home__container}>
@@ -76,8 +84,11 @@ const Home = () => {
 				<h2 className={s['home__near-title']}>Ближайший транспорт</h2>
 				<MainTransportList />
 			</section>
+			<Modal active={showModal} setActive={setShowModal}>
+				{geolocation.location.latitude}
+			</Modal>
 		</main>
 	);
-};
+});
 
 export default Home;
