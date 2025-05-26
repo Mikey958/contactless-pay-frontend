@@ -4,6 +4,10 @@ import AppRouter from './components/AppRouter.jsx';
 import { useTheme } from './hooks/useTheme.js';
 import { ThemeContext } from './contexts/ThemeContext.js';
 
+import { locationManager } from '@telegram-apps/sdk';
+
+locationManager.isSupported();
+
 function App() {
 	const { theme, setTheme } = useTheme();
 
