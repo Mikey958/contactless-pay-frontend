@@ -1,6 +1,3 @@
-include .env
-export
-
 .PHONY: up build down rebuild
 
 build:
