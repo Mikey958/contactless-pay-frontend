@@ -1,20 +1,45 @@
 import React, { useContext, useState } from 'react';
 import s from './SetLocation.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import arrowDarkIcon from '../../assets/icons/arrow-icon.svg';
 import arrowLightIcon from '../../assets/icons/arrow-light-button.svg';
 import SearchBar from '../../components/SearchBar/SearchBar.jsx';
 import { Context } from '../../main.jsx';
 import { useThemeContext } from '../../contexts/ThemeContext.js';
 import { clsx } from 'clsx';
+import Modal from '../../components/Modal/Modal.jsx';
+import ModalCityContent from '../../components/ModalContent/ModalCityContent/ModalCityContent.jsx';
+import { MAIN_ROUTE } from '../../utils/consts.js';
 
 const SetLocation = () => {
+	const navigate = useNavigate();
 	const { theme } = useThemeContext();
 	const { user } = useContext(Context);
 	const [activeCity, setActiveCity] = useState(null);
+	const [activeModal, setActiveModal] = useState(false);
 
 	const handleSearch = (query) => {
 		console.log('Поиск:', query);
+	};
+
+	const handleClick = (id) => {
+		const city = user.cities?.find((city) => city.name === 'Екатеринбург');
+		if (id === city.id) {
+			setActiveCity(id);
+		} else {
+			setActiveModal(true);
+		}
+	};
+
+	const handleAccept = () => {
+		const selectedCity = user.cities.find((city) => city.id === activeCity);
+		if (selectedCity) {
+			user.setUser({
+				...user.user,
+				city_name: selectedCity.name,
+			});
+			navigate(MAIN_ROUTE);
+		}
 	};
 
 	return (
@@ -45,7 +70,7 @@ const SetLocation = () => {
 						{Array.isArray(user.cities) &&
 							user.cities.map((city) => (
 								<button
-									onClick={() => setActiveCity(city.id)}
+									onClick={() => handleClick(city.id)}
 									key={city.id}
 									className={clsx(
 										s.location__city,
@@ -63,8 +88,17 @@ const SetLocation = () => {
 				<Link to={-1} className={s['location__back-button']}>
 					Выбрать позже
 				</Link>
-				<button className={s['location__accept-button']}>Готово</button>
+				<button
+					onClick={handleAccept}
+					disabled={!activeCity}
+					className={clsx(s['location__accept-button'])}
+				>
+					Готово
+				</button>
 			</section>
+			<Modal active={activeModal} setActive={setActiveModal}>
+				<ModalCityContent onClose={() => setActiveModal(false)} />
+			</Modal>
 		</main>
 	);
 };
