@@ -85,7 +85,7 @@ const Home = observer(() => {
 				<MainTransportList />
 			</section>
 			<Modal active={showModal} setActive={setShowModal}>
-				{geolocation.location.latitude}
+				{geolocation.location?.latitude}
 			</Modal>
 		</main>
 	);
