@@ -6,7 +6,19 @@ import { ThemeContext } from './contexts/ThemeContext.js';
 
 import { locationManager } from '@telegram-apps/sdk';
 
-locationManager.isSupported();
+if (locationManager.isSupported()) {
+	locationManager
+		.getCurrentLocation()
+		.then((location) => {
+			alert('Текущая геолокация:', location);
+			// location = { latitude: ..., longitude: ... }
+		})
+		.catch((error) => {
+			alert('Ошибка получения геолокации:', error);
+		});
+} else {
+	alert('Геолокация не поддерживается на этой платформе');
+}
 
 function App() {
 	const { theme, setTheme } = useTheme();
