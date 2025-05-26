@@ -15,12 +15,12 @@ import { Context } from '../../main.jsx';
 import { observer } from 'mobx-react-lite';
 import { useInitLocation } from '../../hooks/useInitLocation.js';
 import Modal from '../../components/Modal/Modal.jsx';
+import ModalLocationContent from '../../components/ModalContent/ModalLocationContent/ModalLocationContent.jsx';
 
 const Home = observer(() => {
 	const navigate = useNavigate();
 	const { user } = useContext(Context);
-	const { geolocation } = useContext(Context);
-	const [showModal, setShowModal] = useState(false);
+	const [showModal, setShowModal] = useState(true);
 
 	useInitLocation(() => {
 		setShowModal(true);
@@ -84,8 +84,8 @@ const Home = observer(() => {
 				<h2 className={s['home__near-title']}>Ближайший транспорт</h2>
 				<MainTransportList />
 			</section>
-			<Modal active={showModal} setActive={setShowModal}>
-				{geolocation.location?.latitude}
+			<Modal active={showModal} setActive={setShowModal} enableCross={false}>
+				<ModalLocationContent onClose={() => setShowModal(false)} />
 			</Modal>
 		</main>
 	);

@@ -5,7 +5,7 @@ import crossWhiteIcon from '../../assets/icons/cross-light-icon.svg';
 
 import { useThemeContext } from '../../contexts/ThemeContext.js';
 
-const Modal = ({ active, setActive, children }) => {
+const Modal = ({ active, setActive, enableCross = true, children }) => {
 	const { theme } = useThemeContext();
 
 	useEffect(() => {
@@ -34,12 +34,14 @@ const Modal = ({ active, setActive, children }) => {
 						: { border: '1px solid #404040' }
 				}
 			>
-				<button className={s.modal__close} onClick={() => setActive(false)}>
-					<img
-						src={theme === 'light' ? crossDarkIcon : crossWhiteIcon}
-						alt='Крестик'
-					/>
-				</button>
+				{enableCross && (
+					<button className={s.modal__close} onClick={() => setActive(false)}>
+						<img
+							src={theme === 'light' ? crossDarkIcon : crossWhiteIcon}
+							alt='Крестик'
+						/>
+					</button>
+				)}
 				{children}
 			</div>
 		</div>
