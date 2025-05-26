@@ -36,7 +36,9 @@ const Home = () => {
 							src={geoIcon}
 							alt='геолокация'
 						/>
-						<p className={s['home__city']}>{user.user.city__name}</p>
+						<p className={s['home__city']}>
+							{user.user.city_name || `Выберите город`}
+						</p>
 					</button>
 				</div>
 				<div className={s.home__cards}>

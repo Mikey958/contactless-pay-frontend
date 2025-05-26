@@ -5,7 +5,7 @@ export default class UserStore {
 		this._isAuth = true;
 		this._user = {
 			user_id: null,
-			city_name: 'Екатеринбург',
+			city_name: null,
 			chat_id: null,
 		};
 		this._cities = [
