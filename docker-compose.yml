@@ -4,6 +4,9 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: qr-frontend
+    image: ${IMAGE_APP}
     ports:
       - "${PORT}:80"
+    env_file:
+      - .env
     restart: unless-stopped
