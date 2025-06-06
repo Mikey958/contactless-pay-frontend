@@ -1,0 +1,45 @@
+name: autodeploy
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: self-hosted
+    environment: prod
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Login to GitHub Container Registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
+      - name: Copy .env file
+        run: echo "${{ secrets.DOT_ENV }}" > .env
+      - name: Set tagged image name
+        run: |
+          echo "IMAGE_APP=${{ vars.IMAGE_APP }}:prod-${{ github.run_number }}" >> $GITHUB_ENV
+          echo "IMAGE_APP_LATEST=${{ vars.IMAGE_APP }}:latest" >> $GITHUB_ENV
+      - name: Build and push images
+        run: |
+          make build push
+          docker tag $IMAGE_APP $IMAGE_APP_LATEST
+          docker push $IMAGE_APP_LATEST
+
+  deploy:
+    runs-on: self-hosted
+    environment: prod
+    needs: build
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Login to GitHub Container Registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
+      - name: Copy .env file
+        run: echo "${{ secrets.DOT_ENV }}" > .env
+      - name: Set tagged image name
+        run: echo "IMAGE_APP=${{ vars.IMAGE_APP }}:prod-${{ github.run_number }}" >> $GITHUB_ENV
+      - name: Deploy app
+        run: make pull down up
