@@ -1,12 +1,25 @@
-# React + Vite
+# Pay4Ride
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Этот проект представляет собой современное решение для бесконтактной оплаты проезда в общественном транспорте — автобусах, трамваях и метро — без необходимости сканировать QR-коды или прикладывать банковские карты.
 
-Currently, two official plugins are available:
+## 🚀 Демонстрация
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Бот telegram](https://t.me/pay4ridebot)
 
-## Expanding the ESLint configuration
+## 🛠️ Технологии
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- [React](https://reactjs.org/)
+- [Vite](https://vite.dev/)
+- [Sass](https://sass-lang.com/)
+- [React Router](https://reactrouter.com/)
+- [MobX](https://mobx.js.org/installation.html)
+- [React Select](https://react-select.com/home)
+- [React Yandex Maps](https://pbe-react-yandex-maps.vercel.app/en/?ysclid=mbqt3mbjml421162249)
+- [Axios](https://axios-http.com/ru/)
+
+## 📦 Установка
+
+```bash
+npm install
+npm run dev
+```
